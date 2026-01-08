@@ -276,7 +276,7 @@
         <div class="flex gap-6 text-sm text-legion-muted">
           <a href="https://www.onyxailabs.com" class="hover:text-legion-text">Onyx AI Labs</a>
           <a href="https://linkedin.com/company/onyx-ai-labs" class="hover:text-legion-text">LinkedIn</a>
-          <a href="mailto:hello@onyxailabs.com" class="hover:text-legion-text">Contact</a>
+          <a href="mailto:inquiries@onyxailabs.com" class="hover:text-legion-text">Contact</a>
         </div>
       </div>
       <div class="mt-8 pt-8 border-t border-legion-border text-center text-sm text-legion-muted">
@@ -296,25 +296,23 @@
       button.textContent = 'Joining...';
       
       try {
-        // For now, just store in localStorage and show success
-        // In production, this would POST to your backend
-        const waitlist = JSON.parse(localStorage.getItem('legion-waitlist') || '[]');
-        if (!waitlist.includes(email)) {
-          waitlist.push(email);
-          localStorage.setItem('legion-waitlist', JSON.stringify(waitlist));
+        const response = await fetch('https://app.onyxlegion.ai/admin/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          messageEl.textContent = '🎉 ' + (data.message || "You're on the list! We'll email you when it's your turn.");
+          messageEl.className = 'mt-3 text-sm text-accent';
+          document.getElementById('emailInput').value = '';
+        } else {
+          messageEl.textContent = data.error || 'Something went wrong. Please try again.';
+          messageEl.className = 'mt-3 text-sm text-red-400';
         }
-        
-        messageEl.textContent = '🎉 You\'re on the list! We\'ll email you when it\'s your turn.';
-        messageEl.className = 'mt-3 text-sm text-accent';
         messageEl.classList.remove('hidden');
-        document.getElementById('emailInput').value = '';
-        
-        // In production, send to backend:
-        // await fetch('https://app.onyxlegion.ai/api/waitlist', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ email })
-        // });
         
       } catch (error) {
         messageEl.textContent = 'Something went wrong. Please try again.';
