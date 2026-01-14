@@ -63,6 +63,9 @@
   </style>
 </head>
 <body class="text-legion-text font-display">
+
+  <!-- Firefly cursor effect -->
+  <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-legion-void/90 backdrop-blur-xl border-b border-legion-border">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -413,5 +416,92 @@
       </div>
     </div>
   </footer>
+  <script>
+    // Particle/Firefly cursor glow effect (from app)
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      
+      // Skip on touch devices
+      if (!window.matchMedia('(pointer: fine)').matches) {
+        canvas.style.display = 'none';
+        return;
+      }
+      
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      let mouseX = width / 2;
+      let mouseY = height / 2;
+      let currentX = mouseX;
+      let currentY = mouseY;
+      let isActive = false;
+      let fadeTimeout;
+      
+      const glowColor = '#f59e0b'; // Amber accent for enterprise
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        isActive = true;
+        
+        clearTimeout(fadeTimeout);
+        fadeTimeout = setTimeout(() => {
+          isActive = false;
+        }, 2000);
+      });
+      
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+      
+      let alpha = 0;
+      
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        const ease = 0.08;
+        currentX += (mouseX - currentX) * ease;
+        currentY += (mouseY - currentY) * ease;
+        
+        const targetAlpha = isActive ? 0.15 : 0;
+        alpha += (targetAlpha - alpha) * 0.05;
+        
+        if (alpha > 0.01) {
+          const gradient = ctx.createRadialGradient(
+            currentX, currentY, 0,
+            currentX, currentY, 80
+          );
+          
+          const alphaHex = Math.round(alpha * 255).toString(16).padStart(2, '0');
+          const halfAlphaHex = Math.round(alpha * 128).toString(16).padStart(2, '0');
+          
+          gradient.addColorStop(0, glowColor + alphaHex);
+          gradient.addColorStop(0.4, glowColor + halfAlphaHex);
+          gradient.addColorStop(1, 'transparent');
+          
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 80, 0, Math.PI * 2);
+          ctx.fill();
+          
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 2, 0, Math.PI * 2);
+          ctx.fillStyle = glowColor;
+          ctx.globalAlpha = alpha * 3;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+    })();
+  </script>
 </body>
 </html>
