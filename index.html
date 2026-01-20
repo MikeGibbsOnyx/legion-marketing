@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TGR51F91MH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onyx Legion | Multi-AI Deliberation Platform | Enterprise AI Consensus</title>
+  <meta name="description" content="Multi-AI deliberation platform for enterprise. Query Claude, GPT, Gemini, Grok, DeepSeek simultaneously. Eliminate single-model bias with structured AI consensus. Air-gapped deployment available.">
+  
+  <!-- SEO Keywords -->
+  <meta name="keywords" content="multi-AI deliberation, AI consensus platform, enterprise AI comparison, Claude vs GPT vs Gemini, air-gapped AI deployment, AI model comparison enterprise, multi-model AI, AI bias reduction, AI deliberation platform">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Onyx Legion | Multi-AI Deliberation Platform">
+  <meta property="og:description" content="5 AI models debate your question through 4 rounds, then synthesize one answer. Eliminate single-model bias with structured AI consensus.">
+  <meta property="og:image" content="https://onyxlegion.ai/assets/LegionLogoDarkBG.png">
+  <meta property="og:url" content="https://onyxlegion.ai">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Onyx Legion | Multi-AI Deliberation Platform">
+  <meta name="twitter:description" content="Query 5 AI models simultaneously. Structured deliberation produces consensus answers.">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://onyxlegion.ai">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  
+  <!-- Organization & Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Onyx Legion",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web, iOS, Android, macOS, Windows, Linux",
+    "description": "Multi-AI deliberation platform that queries Claude, GPT, Gemini, Grok, and DeepSeek simultaneously. Four-round structured deliberation produces consensus answers that eliminate single-model bias.",
+    "url": "https://onyxlegion.ai",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free tier available"
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Onyx AI Labs",
+      "url": "https://onyxailabs.com"
+    },
+    "featureList": [
+      "Multi-AI Deliberation",
+      "Claude, GPT, Gemini, Grok, DeepSeek Integration",
+      "Four-Round Consensus Process",
+      "Air-Gapped Enterprise Deployment",
+      "On-Premises Model Support",
+      "Cross-Platform (Web, iOS, Android, Desktop)"
+    ],
+    "keywords": "multi-AI, AI deliberation, AI consensus, enterprise AI, air-gapped AI"
+  }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'legion': {
+              'bg': '#0a0a0f',
+              'surface': '#12121a',
+              'elevated': '#1a1a24',
+              'border': '#2a2a3a',
+              'text': '#e4e4e7',
+              'muted': '#71717a',
+              'bright': '#fafafa',
+            },
+            'accent': '#00d4aa',
+            'model': {
+              'claude': '#d97706',
+              'gpt': '#10b981',
+              'gemini': '#3b82f6',
+              'grok': '#ec4899',
+              'deepseek': '#8b5cf6',
+            }
+          },
+          fontFamily: {
+            'display': ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .gradient-text {
+      background: linear-gradient(135deg, #00d4aa 0%, #3b82f6 50%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .glow {
+      box-shadow: 0 0 60px rgba(0, 212, 170, 0.15);
+    }
+    .glow-strong {
+      box-shadow: 0 0 80px rgba(0, 212, 170, 0.25), 0 0 120px rgba(59, 130, 246, 0.15);
+    }
+    @keyframes pulse-slow {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+    .animate-pulse-slow {
+      animation: pulse-slow 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-legion-bg text-legion-text antialiased min-h-screen">
+
+  <!-- Firefly cursor effect -->
+  <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#how-it-works" class="text-legion-muted hover:text-legion-text transition-colors">How It Works</a>
+        <a href="/enterprise.html" class="text-amber-500 hover:text-amber-400 transition-colors font-medium">Enterprise</a>
+        <a href="#waitlist" class="text-legion-muted hover:text-legion-text transition-colors">Join Waitlist</a>
+        <a href="https://www.onyxailabs.com" class="text-legion-muted hover:text-legion-text transition-colors">Onyx AI Labs</a>
+      </div>
+      <div class="px-4 py-2 rounded-full bg-accent/20 border border-accent/30 text-accent text-sm font-medium">
+        Coming Soon
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section - Coming Soon -->
+  <section class="pt-32 pb-20 px-6 min-h-[80vh] flex items-center">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-legion-elevated border border-accent/30 mb-8">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        <span class="text-sm text-accent font-medium">Coming Soon — Early Access Invites Going Out Now</span>
+      </div>
+      
+      <h1 class="text-5xl md:text-7xl font-extrabold text-legion-bright leading-tight mb-6">
+        Onyx Legion
+      </h1>
+      
+      <p class="text-2xl md:text-3xl font-semibold text-legion-muted mb-4">
+        Many Minds. <span class="gradient-text">One Answer.</span>
+      </p>
+      
+      <p class="text-xl text-legion-muted max-w-2xl mx-auto mb-10">
+        The world's first multi-AI deliberation platform. 5 AI models debate your question through 4 rounds, then synthesize one better answer.
+      </p>
+
+      <!-- Waitlist Form -->
+      <div id="waitlist" class="max-w-md mx-auto mb-16">
+        <form id="waitlistForm" class="flex flex-col sm:flex-row gap-3">
+          <input 
+            type="email" 
+            id="emailInput"
+            placeholder="Enter your email" 
+            required
+            class="flex-1 px-5 py-4 bg-legion-surface border border-legion-border rounded-xl text-legion-text placeholder:text-legion-muted focus:outline-none focus:border-accent/50 focus:ring-2 focus:ring-accent/20"
+          >
+          <button 
+            type="submit"
+            class="px-8 py-4 bg-accent text-legion-bg font-bold rounded-xl hover:bg-accent/90 transition-all hover:scale-105 whitespace-nowrap"
+          >
+            Join Waitlist
+          </button>
+        </form>
+        <p id="formMessage" class="mt-3 text-sm text-legion-muted hidden"></p>
+        <p class="mt-4 text-sm text-legion-muted">
+          Be first in line. Early access members get <span class="text-accent">1,000 free tokens</span>.
+        </p>
+      </div>
+
+      <!-- Model Logos -->
+      <div class="flex items-center justify-center gap-6 flex-wrap opacity-60 mb-12">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-model-claude"></div>
+          <span class="text-sm">Claude</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-model-gpt"></div>
+          <span class="text-sm">GPT-4o</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-model-gemini"></div>
+          <span class="text-sm">Gemini</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-model-grok"></div>
+          <span class="text-sm">Grok</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full bg-model-deepseek"></div>
+          <span class="text-sm">DeepSeek</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screenshot/Demo Section -->
+  <section class="py-12 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="rounded-2xl border border-legion-border bg-legion-surface p-2 glow-strong relative">
+        <div class="absolute inset-0 bg-gradient-to-t from-legion-bg/80 to-transparent rounded-2xl z-10"></div>
+        <img src="/assets/Legion_Round_1.png" alt="Legion Mode - 5 AI models debating" class="rounded-xl w-full opacity-80">
+        <div class="absolute bottom-8 left-0 right-0 text-center z-20">
+          <p class="text-lg text-legion-muted">Preview of Legion Mode in action</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section id="how-it-works" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-4">
+        How Legion Mode Works
+      </h2>
+      <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
+        Unlike other AI tools, Legion makes models debate and refine their answers before you see them.
+      </p>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <!-- Round 1 -->
+        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+            <span class="text-2xl font-bold text-accent">1</span>
+          </div>
+          <h3 class="text-lg font-semibold text-legion-bright mb-2">Independent Answers</h3>
+          <p class="text-legion-muted text-sm">
+            All 5 AIs answer your question independently, without seeing each other.
+          </p>
+        </div>
+
+        <!-- Round 2 -->
+        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+            <span class="text-2xl font-bold text-accent">2</span>
+          </div>
+          <h3 class="text-lg font-semibold text-legion-bright mb-2">Cross-Examination</h3>
+          <p class="text-legion-muted text-sm">
+            Each AI critiques the others. They identify mistakes, gaps, and weak arguments.
+          </p>
+        </div>
+
+        <!-- Round 3 -->
+        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+            <span class="text-2xl font-bold text-accent">3</span>
+          </div>
+          <h3 class="text-lg font-semibold text-legion-bright mb-2">Refinement</h3>
+          <p class="text-legion-muted text-sm">
+            AIs defend valid points and incorporate criticism into improved answers.
+          </p>
+        </div>
+
+        <!-- Round 4 -->
+        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
+            <span class="text-2xl font-bold text-accent">4</span>
+          </div>
+          <h3 class="text-lg font-semibold text-legion-bright mb-2">Synthesis</h3>
+          <p class="text-legion-muted text-sm">
+            Final answer synthesizes consensus, key insights, and areas of disagreement.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why It's Better -->
+  <section class="py-24 px-6 bg-legion-surface">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-16">
+        Why 5 AIs > 1 AI
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="text-5xl font-bold gradient-text mb-3">2.3x</div>
+          <p class="text-legion-muted">More issues detected through cross-examination</p>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold gradient-text mb-3">34%</div>
+          <p class="text-legion-muted">Quality improvement over single-model responses</p>
+        </div>
+        <div class="text-center">
+          <div class="text-5xl font-bold gradient-text mb-3">67%</div>
+          <p class="text-legion-muted">Reduction in model-specific bias</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Enterprise Callout -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="p-8 md:p-12 rounded-3xl bg-gradient-to-r from-amber-500/10 to-amber-500/5 border border-amber-500/30">
+        <div class="flex flex-col md:flex-row items-center gap-8">
+          <div class="flex-1">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-500 text-sm font-medium mb-4">
+              Enterprise
+            </div>
+            <h3 class="text-2xl md:text-3xl font-bold text-legion-bright mb-4">
+              Stop Building AI. Start Using It.
+            </h3>
+            <p class="text-legion-muted mb-6">
+              You've invested millions in AI models. They're sitting unused. Legion is the control plane that connects your models to your people—desktop, mobile, air-gapped. Full audit trail, role-based access, zero custom development.
+            </p>
+            <a href="/enterprise.html" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 text-black font-bold rounded-xl hover:bg-amber-400 transition-colors">
+              Learn More
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="flex-shrink-0 text-center">
+            <div class="text-6xl mb-2">🏢</div>
+            <p class="text-sm text-legion-muted">Your Models.<br>Your People.<br>Your Control.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-6">
+        Be first to experience multi-AI deliberation
+      </h2>
+      <p class="text-xl text-legion-muted mb-10">
+        We're inviting early access members now. Join the waitlist.
+      </p>
+      <a href="#waitlist" class="inline-block px-10 py-4 bg-accent text-legion-bg font-bold text-lg rounded-xl hover:bg-accent/90 transition-all hover:scale-105">
+        Join Waitlist →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex items-center gap-2">
+          <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-6">
+          <span class="font-bold text-legion-bright">Onyx Legion</span>
+          <span class="text-legion-muted">by Onyx AI Labs</span>
+        </div>
+        <div class="flex gap-6 text-sm text-legion-muted">
+          <a href="https://www.onyxailabs.com" class="hover:text-legion-text">Onyx AI Labs</a>
+          <a href="https://www.onyxailabs.com/research/" class="hover:text-legion-text">Research</a>
+          <a href="/enterprise" class="hover:text-legion-text">Enterprise</a>
+          <a href="mailto:inquiries@onyxailabs.com" class="hover:text-legion-text">Contact</a>
+        </div>
+      </div>
+      <div class="mt-8 pt-8 border-t border-legion-border text-center text-sm text-legion-muted">
+        © 2026 Onyx AI Labs Inc. Toronto, Canada.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('waitlistForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const email = document.getElementById('emailInput').value;
+      const messageEl = document.getElementById('formMessage');
+      const button = this.querySelector('button');
+      
+      button.disabled = true;
+      button.textContent = 'Joining...';
+      
+      try {
+        const response = await fetch('https://app.onyxlegion.ai/admin/waitlist', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+        
+        const data = await response.json();
+        
+        if (response.ok && data.success) {
+          messageEl.textContent = '🎉 ' + (data.message || "You're on the list! We'll email you when it's your turn.");
+          messageEl.className = 'mt-3 text-sm text-accent';
+          document.getElementById('emailInput').value = '';
+        } else {
+          messageEl.textContent = data.error || 'Something went wrong. Please try again.';
+          messageEl.className = 'mt-3 text-sm text-red-400';
+        }
+        messageEl.classList.remove('hidden');
+        
+      } catch (error) {
+        messageEl.textContent = 'Something went wrong. Please try again.';
+        messageEl.className = 'mt-3 text-sm text-red-400';
+        messageEl.classList.remove('hidden');
+      } finally {
+        button.disabled = false;
+        button.textContent = 'Join Waitlist';
+      }
+    });
+  </script>
+
+  <script>
+    // Particle/Firefly cursor glow effect (from app)
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      
+      // Skip on touch devices
+      if (!window.matchMedia('(pointer: fine)').matches) {
+        canvas.style.display = 'none';
+        return;
+      }
+      
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      let mouseX = width / 2;
+      let mouseY = height / 2;
+      let currentX = mouseX;
+      let currentY = mouseY;
+      let isActive = false;
+      let fadeTimeout;
+      
+      const glowColor = '#00d4aa'; // Accent color
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        isActive = true;
+        
+        clearTimeout(fadeTimeout);
+        fadeTimeout = setTimeout(() => {
+          isActive = false;
+        }, 2000);
+      });
+      
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+      
+      let alpha = 0;
+      
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        // Smooth follow with easing
+        const ease = 0.08;
+        currentX += (mouseX - currentX) * ease;
+        currentY += (mouseY - currentY) * ease;
+        
+        // Fade in/out
+        const targetAlpha = isActive ? 0.15 : 0;
+        alpha += (targetAlpha - alpha) * 0.05;
+        
+        if (alpha > 0.01) {
+          // Draw soft glow
+          const gradient = ctx.createRadialGradient(
+            currentX, currentY, 0,
+            currentX, currentY, 80
+          );
+          
+          const alphaHex = Math.round(alpha * 255).toString(16).padStart(2, '0');
+          const halfAlphaHex = Math.round(alpha * 128).toString(16).padStart(2, '0');
+          
+          gradient.addColorStop(0, glowColor + alphaHex);
+          gradient.addColorStop(0.4, glowColor + halfAlphaHex);
+          gradient.addColorStop(1, 'transparent');
+          
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 80, 0, Math.PI * 2);
+          ctx.fill();
+          
+          // Tiny bright center dot
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 2, 0, Math.PI * 2);
+          ctx.fillStyle = glowColor;
+          ctx.globalAlpha = alpha * 3;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+    })();
+  </script>
+
+</body>
+</html>

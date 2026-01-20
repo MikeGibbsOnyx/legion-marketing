@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TGR51F91MH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Onyx AI Labs | Onyx Legion</title>
+  <meta name="description" content="Onyx Legion is built by Onyx AI Labs, a Toronto-based AI company founded by C. Michael Gibbs with 18 years of enterprise consulting experience across regulated industries.">
+  
+  <!-- SEO Keywords -->
+  <meta name="keywords" content="Onyx AI Labs, multi-AI platform, enterprise AI company, Toronto AI startup, Mike Gibbs, SureStep, AI consulting">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="About Onyx AI Labs | Builders of Legion">
+  <meta property="og:description" content="18 years of enterprise experience building AI that works for regulated industries.">
+  <meta property="og:image" content="https://onyxlegion.ai/assets/LegionLogoDarkBG.png">
+  <meta property="og:url" content="https://onyxlegion.ai/about.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Onyx AI Labs | Builders of Legion">
+  <meta name="twitter:description" content="18 years of enterprise experience. AI that works for regulated industries.">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://onyxlegion.ai/about.html">
+  
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'legion': {
+              'bg': '#0a0a0f',
+              'surface': '#12121a',
+              'elevated': '#1a1a24',
+              'border': '#2a2a3a',
+              'text': '#e4e4e7',
+              'muted': '#71717a',
+              'bright': '#fafafa',
+            },
+            'accent': '#00d4aa',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-legion-bg text-legion-text antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/OnyxMark.png" alt="Onyx Legion" class="h-8 w-8">
+        <span class="text-xl font-bold text-legion-bright">Onyx Legion</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#how-it-works" class="text-legion-muted hover:text-legion-text transition-colors">How It Works</a>
+        <a href="/enterprise" class="text-amber-500 hover:text-amber-400 transition-colors font-medium">Enterprise</a>
+        <a href="/about" class="text-legion-text font-medium">About</a>
+      </div>
+      <a href="https://app.onyxlegion.ai" class="px-5 py-2.5 bg-accent text-legion-bg font-semibold rounded-xl hover:bg-accent/90 transition-colors">
+        Launch App →
+      </a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <section class="pt-32 pb-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-legion-bright mb-6">
+        About Onyx Legion
+      </h1>
+      <p class="text-xl text-legion-muted">
+        We believe the best answers come from multiple perspectives. That's why we built the first multi-AI deliberation platform.
+      </p>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section class="py-12 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-legion-bright mb-6">The Problem</h2>
+      <div class="prose prose-invert max-w-none text-legion-muted space-y-4">
+        <p>
+          AI is incredible. But every model has blind spots. ChatGPT hallucinates. Claude hedges. Gemini oversimplifies. When you ask one AI a question, you get one perspective—with all its biases and limitations.
+        </p>
+        <p>
+          Power users know this. They open multiple tabs, copy-paste the same question to different AIs, and manually compare the answers. It works, but it's tedious.
+        </p>
+        <p>
+          We asked: what if the AIs could do that comparison themselves? What if they could debate, challenge each other, and refine their answers before you see them?
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-12 px-6 bg-legion-surface">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-legion-bright mb-6">The Solution</h2>
+      <div class="prose prose-invert max-w-none text-legion-muted space-y-4">
+        <p>
+          Onyx Legion queries five leading AI models—Claude, GPT-4o, Gemini, Grok, and DeepSeek—and runs them through a structured 4-round deliberation process:
+        </p>
+        <ol class="list-decimal list-inside space-y-2">
+          <li><strong class="text-legion-text">Independent answers</strong> — Each AI responds without seeing the others</li>
+          <li><strong class="text-legion-text">Cross-examination</strong> — They critique each other's responses</li>
+          <li><strong class="text-legion-text">Refinement</strong> — They incorporate valid criticism and defend correct points</li>
+          <li><strong class="text-legion-text">Synthesis</strong> — A final answer combines the best of all perspectives</li>
+        </ol>
+        <p>
+          The result is more accurate, more balanced, and more trustworthy than any single model can produce alone.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-legion-bright mb-8">The Team</h2>
+      
+      <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="flex flex-col md:flex-row gap-6 items-start">
+          <div class="w-24 h-24 rounded-xl bg-legion-elevated flex items-center justify-center text-3xl font-bold text-accent">
+            MG
+          </div>
+          <div>
+            <h3 class="text-xl font-semibold text-legion-bright">C. Michael Gibbs</h3>
+            <p class="text-accent mb-4">Founder & CEO</p>
+            <p class="text-legion-muted mb-4">
+              18 years building enterprise software. Founder of SureStep, a global GRC consultancy serving MasterCard, Barclays, and major financial institutions across North America, Europe, and Asia-Pacific.
+            </p>
+            <p class="text-legion-muted mb-4">
+              Mike started Onyx AI Labs to bring multi-AI deliberation to everyone—from individual users who want better answers, to enterprises that need AI they can trust.
+            </p>
+            <div class="flex gap-4">
+              <a href="https://www.linkedin.com/in/c-michael-gibbs-420b9b1/" class="text-sm text-accent hover:underline">LinkedIn →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Onyx AI Labs -->
+  <section class="py-16 px-6 bg-legion-surface">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-legion-bright mb-6">Onyx AI Labs</h2>
+      <div class="prose prose-invert max-w-none text-legion-muted space-y-4">
+        <p>
+          Onyx Legion is the flagship product of <a href="https://www.onyxailabs.com" class="text-accent hover:underline">Onyx AI Labs</a>, a Toronto-based AI company focused on multi-model systems and deliberative AI.
+        </p>
+        <p>
+          We're also developing <strong class="text-legion-text">PANTHEON</strong>, a specialist AI fleet for governance, risk, and compliance applications—bringing the same multi-model approach to enterprise use cases.
+        </p>
+        <p>
+          Our parent company, SureStep, holds <strong class="text-legion-text">SOC 2 Type 2</strong> certification, giving us the compliance infrastructure to serve regulated industries like healthcare, finance, and government.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-2xl font-bold text-legion-bright mb-6">Get in Touch</h2>
+      <div class="p-6 rounded-xl bg-legion-surface border border-legion-border">
+        <h3 class="font-semibold text-legion-bright mb-2">All Inquiries</h3>
+        <a href="mailto:inquiries@onyxailabs.com" class="text-accent hover:underline">inquiries@onyxailabs.com</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 px-6 bg-legion-surface">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-legion-bright mb-6">
+        Try Onyx Legion
+      </h2>
+      <p class="text-xl text-legion-muted mb-10">
+        See what happens when AIs debate your questions.
+      </p>
+      <a href="https://app.onyxlegion.ai" class="inline-block px-10 py-4 bg-accent text-legion-bg font-bold text-lg rounded-xl hover:bg-accent/90 transition-all hover:scale-105">
+        Launch App →
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <img src="/assets/OnyxMark.png" alt="Onyx Legion" class="h-6 w-6">
+        <span class="text-sm text-legion-muted">© 2026 Onyx AI Labs. Toronto, Canada.</span>
+      </div>
+      <div class="flex gap-6 text-sm text-legion-muted">
+        <a href="/" class="hover:text-legion-text">Home</a>
+        <a href="/enterprise" class="hover:text-legion-text">Enterprise</a>
+        <a href="https://app.onyxlegion.ai/privacy.html" class="hover:text-legion-text">Privacy</a>
+        <a href="https://app.onyxlegion.ai/terms.html" class="hover:text-legion-text">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

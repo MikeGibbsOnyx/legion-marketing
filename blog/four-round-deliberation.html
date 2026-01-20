@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TGR51F91MH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Four-Round Deliberation Process Explained | Onyx Legion Blog</title>
+  <meta name="description" content="A deep dive into how Legion Mode works: independent responses, cross-examination, refinement, and synthesis. Why each round matters.">
+  <meta property="og:title" content="The Four-Round Deliberation Process Explained">
+  <meta property="og:description" content="How Legion Mode makes AI models debate, critique, and synthesize better answers.">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'legion': {
+              'bg': '#0a0a0f',
+              'surface': '#12121a',
+              'elevated': '#1a1a24',
+              'border': '#2a2a3a',
+              'text': '#e4e4e7',
+              'muted': '#71717a',
+              'bright': '#fafafa',
+            },
+            'accent': '#00d4aa',
+            'model': {
+              'claude': '#d97706',
+              'gpt': '#10b981',
+              'gemini': '#3b82f6',
+              'grok': '#ec4899',
+              'deepseek': '#8b5cf6',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .prose h2 { margin-top: 2rem; margin-bottom: 1rem; }
+    .prose h3 { margin-top: 1.5rem; margin-bottom: 0.75rem; }
+    .prose p { margin-bottom: 1.25rem; }
+    .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .prose li { margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body class="bg-legion-bg text-legion-text antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/OnyxMark.png" alt="Onyx Legion" class="h-8 w-8">
+        <span class="text-xl font-bold text-legion-bright">Onyx Legion</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#how-it-works" class="text-legion-muted hover:text-legion-text transition-colors">How It Works</a>
+        <a href="/pricing" class="text-legion-muted hover:text-legion-text transition-colors">Pricing</a>
+        <a href="/blog" class="text-legion-text font-medium">Blog</a>
+        <a href="/about" class="text-legion-muted hover:text-legion-text transition-colors">About</a>
+      </div>
+      <a href="https://app.onyxlegion.ai" class="px-5 py-2.5 bg-accent text-legion-bg font-semibold rounded-xl hover:bg-accent/90 transition-colors">
+        Launch App →
+      </a>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="pt-32 pb-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-legion-muted mb-4">
+          <a href="/blog" class="hover:text-accent">← Back to Blog</a>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-legion-bright mb-6 leading-tight">
+          The Four-Round Deliberation Process Explained
+        </h1>
+        <div class="flex items-center gap-4 text-legion-muted">
+          <span>January 11, 2026</span>
+          <span>•</span>
+          <span>8 min read</span>
+          <span>•</span>
+          <span>How It Works</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-invert max-w-none text-legion-text">
+        
+        <p class="text-xl text-legion-muted leading-relaxed">
+          Legion Mode isn't just "ask five AIs and average the answers." It's a structured deliberation process inspired by how humans make better decisions through debate, peer review, and synthesis. Here's exactly what happens when you submit a query.
+        </p>
+
+        <!-- Visual Overview -->
+        <div class="my-10 p-6 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="grid grid-cols-4 gap-4 text-center">
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-2">
+                <span class="text-xl font-bold text-accent">1</span>
+              </div>
+              <p class="text-sm text-legion-muted">Independent</p>
+            </div>
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-2">
+                <span class="text-xl font-bold text-accent">2</span>
+              </div>
+              <p class="text-sm text-legion-muted">Cross-Exam</p>
+            </div>
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-2">
+                <span class="text-xl font-bold text-accent">3</span>
+              </div>
+              <p class="text-sm text-legion-muted">Refinement</p>
+            </div>
+            <div>
+              <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mx-auto mb-2">
+                <span class="text-xl font-bold text-accent">4</span>
+              </div>
+              <p class="text-sm text-legion-muted">Synthesis</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Round 1: Independent Answers</h2>
+        
+        <p class="text-legion-muted">
+          Your question goes to all five models simultaneously: Claude, GPT-4o, Gemini, Grok, and DeepSeek. Each model answers independently, without seeing what the others said.
+        </p>
+        
+        <p class="text-legion-muted">
+          <strong class="text-legion-text">Why this matters:</strong> Independence prevents groupthink. If models could see each other's answers first, they'd anchor on the first response and produce similar outputs. By forcing independence, we get genuine diversity of perspective.
+        </p>
+
+        <h3 class="text-xl font-semibold text-legion-bright">What each model brings:</h3>
+        
+        <div class="space-y-3 my-6">
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-legion-elevated">
+            <div class="w-3 h-3 rounded-full bg-model-claude mt-1.5"></div>
+            <div>
+              <p class="font-semibold text-legion-bright">Claude (Anthropic)</p>
+              <p class="text-sm text-legion-muted">Nuanced, careful reasoning. Strong on ethics and edge cases. Sometimes overly cautious.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-legion-elevated">
+            <div class="w-3 h-3 rounded-full bg-model-gpt mt-1.5"></div>
+            <div>
+              <p class="font-semibold text-legion-bright">GPT-4o (OpenAI)</p>
+              <p class="text-sm text-legion-muted">Confident, direct answers. Broad knowledge. Occasionally hallucinates with confidence.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-legion-elevated">
+            <div class="w-3 h-3 rounded-full bg-model-gemini mt-1.5"></div>
+            <div>
+              <p class="font-semibold text-legion-bright">Gemini (Google)</p>
+              <p class="text-sm text-legion-muted">Strong on factual recall and current events. Good at structured information. Can oversimplify.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-legion-elevated">
+            <div class="w-3 h-3 rounded-full bg-model-grok mt-1.5"></div>
+            <div>
+              <p class="font-semibold text-legion-bright">Grok (xAI)</p>
+              <p class="text-sm text-legion-muted">Contrarian perspective. Willing to challenge assumptions. Sometimes prioritizes wit over substance.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-legion-elevated">
+            <div class="w-3 h-3 rounded-full bg-model-deepseek mt-1.5"></div>
+            <div>
+              <p class="font-semibold text-legion-bright">DeepSeek</p>
+              <p class="text-sm text-legion-muted">Strong logical reasoning and analysis. Excellent on technical topics. Less personality in responses.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Round 2: Cross-Examination</h2>
+        
+        <p class="text-legion-muted">
+          This is where it gets interesting. Each model receives all five Round 1 answers and is asked to critique them. The prompt is explicit: identify errors, gaps, unsupported claims, and weak reasoning.
+        </p>
+        
+        <p class="text-legion-muted">
+          <strong class="text-legion-text">Why this matters:</strong> AI models are surprisingly good at catching each other's mistakes. Claude might notice GPT-4 stated a "fact" that's actually outdated. GPT-4 might point out that Claude hedged so much the answer became useless. Gemini might catch that DeepSeek's logic has a flaw.
+        </p>
+
+        <h3 class="text-xl font-semibold text-legion-bright">What gets caught in cross-examination:</h3>
+        
+        <ul class="text-legion-muted list-disc">
+          <li><strong class="text-legion-text">Hallucinations:</strong> Confidently stated "facts" that aren't true</li>
+          <li><strong class="text-legion-text">Logical errors:</strong> Arguments that don't actually follow</li>
+          <li><strong class="text-legion-text">Missing context:</strong> Answers that ignore important considerations</li>
+          <li><strong class="text-legion-text">Overconfidence:</strong> Certainty where uncertainty is warranted</li>
+          <li><strong class="text-legion-text">Excessive hedging:</strong> Caution that makes the answer unhelpful</li>
+          <li><strong class="text-legion-text">Bias:</strong> Perspectives skewed by training data</li>
+        </ul>
+
+        <p class="text-legion-muted">
+          The cross-examination round often produces the most valuable insights. The critiques themselves can be more useful than the original answers.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Round 3: Refinement</h2>
+        
+        <p class="text-legion-muted">
+          Each model receives the critiques from Round 2 and is asked to revise its original answer. The instruction is clear: address valid criticisms, defend correct points that were wrongly challenged, and incorporate insights from other models.
+        </p>
+        
+        <p class="text-legion-muted">
+          <strong class="text-legion-text">Why this matters:</strong> This is where quality improves dramatically. Models don't just accept all criticism—they evaluate it. If GPT-4 criticized Claude for being too cautious, Claude might defend its caution with specific reasons, or acknowledge it and provide a more direct answer.
+        </p>
+
+        <h3 class="text-xl font-semibold text-legion-bright">What happens in refinement:</h3>
+        
+        <ul class="text-legion-muted list-disc">
+          <li><strong class="text-legion-text">Error correction:</strong> Hallucinations get fixed when caught</li>
+          <li><strong class="text-legion-text">Nuance addition:</strong> Oversimplified answers get more complete</li>
+          <li><strong class="text-legion-text">Confidence calibration:</strong> Overconfident claims get qualified appropriately</li>
+          <li><strong class="text-legion-text">Gap filling:</strong> Missing considerations get addressed</li>
+          <li><strong class="text-legion-text">Synthesis:</strong> Good ideas from other models get incorporated</li>
+        </ul>
+
+        <p class="text-legion-muted">
+          After Round 3, you have five revised answers—each one better than the original because it's been stress-tested by four other perspectives.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Round 4: Synthesis</h2>
+        
+        <p class="text-legion-muted">
+          The final round produces a single, synthesized answer. One model (rotated for fairness) reviews all the refined answers and critiques, then produces a comprehensive response that includes:
+        </p>
+        
+        <ul class="text-legion-muted list-disc">
+          <li><strong class="text-legion-text">Consensus:</strong> What all or most models agreed on after debate</li>
+          <li><strong class="text-legion-text">Key insights:</strong> Unique perspectives that survived scrutiny</li>
+          <li><strong class="text-legion-text">Remaining disagreements:</strong> Where models still differ and why</li>
+          <li><strong class="text-legion-text">Final answer:</strong> A synthesized response incorporating the best elements</li>
+        </ul>
+
+        <p class="text-legion-muted">
+          <strong class="text-legion-text">Why this matters:</strong> The synthesis isn't just a summary—it's a meta-analysis. It identifies what's robust (survived criticism), what's contested (models still disagree), and what's complementary (different valid perspectives on the same question).
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">The Full Picture</h2>
+        
+        <p class="text-legion-muted">
+          When you run a Legion query, you can see all four rounds. The interface shows:
+        </p>
+        
+        <ul class="text-legion-muted list-disc">
+          <li>Five initial answers (Round 1)</li>
+          <li>Cross-examination critiques (Round 2)</li>
+          <li>Refined answers (Round 3)</li>
+          <li>Final synthesis (Round 4)</li>
+        </ul>
+
+        <p class="text-legion-muted">
+          You can collapse to just the synthesis for a quick answer, or expand to see the full deliberation. Often, the journey is as valuable as the destination—watching how models challenge and refine each other's thinking teaches you something about the question itself.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">When to Use Legion Mode</h2>
+        
+        <p class="text-legion-muted">
+          Legion Mode costs 500 tokens per query—25x more than Single Mode. It's worth it for:
+        </p>
+        
+        <ul class="text-legion-muted list-disc">
+          <li><strong class="text-legion-text">High-stakes decisions:</strong> Career moves, business strategy, important purchases</li>
+          <li><strong class="text-legion-text">Complex questions:</strong> Topics with multiple valid perspectives</li>
+          <li><strong class="text-legion-text">Fact-checking:</strong> When you need to verify accuracy</li>
+          <li><strong class="text-legion-text">Research:</strong> Understanding a topic from multiple angles</li>
+          <li><strong class="text-legion-text">Contentious topics:</strong> Where bias is a concern</li>
+        </ul>
+
+        <p class="text-legion-muted">
+          For quick questions with clear answers—"What's the capital of France?"—Single Mode is faster and cheaper. For everything else, Legion Mode produces noticeably better results.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">The Technical Details</h2>
+        
+        <p class="text-legion-muted">
+          For those curious about implementation:
+        </p>
+        
+        <ul class="text-legion-muted list-disc">
+          <li>All five models run in parallel for each round, minimizing latency</li>
+          <li>Each round includes carefully engineered prompts for its specific purpose</li>
+          <li>The synthesis model rotates to prevent any single model from dominating</li>
+          <li>Context management ensures each model sees only what it should for that round</li>
+          <li>The full deliberation typically completes in 30-60 seconds</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Try It</h2>
+        
+        <p class="text-legion-muted">
+          The best way to understand Legion Mode is to use it. Ask a question you've been thinking about—something complex, something where you'd normally consult multiple sources. Watch the models debate. See what they catch. Read the synthesis.
+        </p>
+        
+        <p class="text-legion-muted">
+          You'll never look at single-model AI the same way again.
+        </p>
+
+        <div class="my-12 p-8 rounded-2xl bg-legion-surface border border-legion-border text-center">
+          <p class="text-xl font-semibold text-legion-bright mb-4">Experience the deliberation process</p>
+          <a href="https://app.onyxlegion.ai" class="inline-block px-8 py-3 bg-accent text-legion-bg font-bold rounded-xl hover:bg-accent/90 transition-colors">
+            Try Legion Mode →
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </article>
+
+  <!-- More Posts -->
+  <section class="py-16 px-6 bg-legion-surface">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-xl font-bold text-legion-bright mb-8">More Posts</h2>
+      <div class="space-y-4">
+        <a href="/blog/introducing-onyx-legion" class="block p-6 rounded-xl bg-legion-elevated border border-legion-border hover:border-legion-muted transition-colors">
+          <h3 class="font-semibold text-legion-bright mb-1">Introducing Onyx Legion: Many Minds, One Answer</h3>
+          <p class="text-sm text-legion-muted">The first multi-AI deliberation platform. Five AI models debate your question through four rounds.</p>
+        </a>
+        <a href="/blog/why-ai-models-disagree" class="block p-6 rounded-xl bg-legion-elevated border border-legion-border hover:border-legion-muted transition-colors">
+          <h3 class="font-semibold text-legion-bright mb-1">Why AI Models Disagree (And Why That's Valuable)</h3>
+          <p class="text-sm text-legion-muted">Different AI models give different answers. Here's why that's actually useful.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <img src="/assets/OnyxMark.png" alt="Onyx Legion" class="h-6 w-6">
+        <span class="text-sm text-legion-muted">© 2026 Onyx AI Labs. Toronto, Canada.</span>
+      </div>
+      <div class="flex gap-6 text-sm text-legion-muted">
+        <a href="/" class="hover:text-legion-text">Home</a>
+        <a href="/pricing" class="hover:text-legion-text">Pricing</a>
+        <a href="/about" class="hover:text-legion-text">About</a>
+        <a href="https://app.onyxlegion.ai/privacy.html" class="hover:text-legion-text">Privacy</a>
+        <a href="https://app.onyxlegion.ai/terms.html" class="hover:text-legion-text">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

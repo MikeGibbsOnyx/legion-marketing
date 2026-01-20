@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TGR51F91MH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducing Onyx Legion: Many Minds, One Answer | Onyx Legion Blog</title>
+  <meta name="description" content="Today we're launching Onyx Legion, the first multi-AI deliberation platform. Five AI models debate your question through four rounds before synthesizing a final answer.">
+  <meta property="og:title" content="Introducing Onyx Legion: Many Minds, One Answer">
+  <meta property="og:description" content="The first multi-AI deliberation platform. Five AI models debate your question through four rounds.">
+  <meta property="og:type" content="article">
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'legion': {
+              'bg': '#0a0a0f',
+              'surface': '#12121a',
+              'elevated': '#1a1a24',
+              'border': '#2a2a3a',
+              'text': '#e4e4e7',
+              'muted': '#71717a',
+              'bright': '#fafafa',
+            },
+            'accent': '#00d4aa',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+    .prose h2 { margin-top: 2rem; margin-bottom: 1rem; }
+    .prose p { margin-bottom: 1.25rem; }
+    .prose ul, .prose ol { margin-bottom: 1.25rem; padding-left: 1.5rem; }
+    .prose li { margin-bottom: 0.5rem; }
+  </style>
+</head>
+<body class="bg-legion-bg text-legion-text antialiased">
+
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/OnyxMark.png" alt="Onyx Legion" class="h-8 w-8">
+        <span class="text-xl font-bold text-legion-bright">Onyx Legion</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#how-it-works" class="text-legion-muted hover:text-legion-text transition-colors">How It Works</a>
+        <a href="/pricing" class="text-legion-muted hover:text-legion-text transition-colors">Pricing</a>
+        <a href="/blog" class="text-legion-text font-medium">Blog</a>
+        <a href="/about" class="text-legion-muted hover:text-legion-text transition-colors">About</a>
+      </div>
+      <a href="https://app.onyxlegion.ai" class="px-5 py-2.5 bg-accent text-legion-bg font-semibold rounded-xl hover:bg-accent/90 transition-colors">
+        Launch App →
+      </a>
+    </div>
+  </nav>
+
+  <!-- Article -->
+  <article class="pt-32 pb-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      
+      <!-- Header -->
+      <header class="mb-12">
+        <div class="flex items-center gap-3 text-sm text-legion-muted mb-4">
+          <a href="/blog" class="hover:text-accent">← Back to Blog</a>
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-legion-bright mb-6 leading-tight">
+          Introducing Onyx Legion: Many Minds, One Answer
+        </h1>
+        <div class="flex items-center gap-4 text-legion-muted">
+          <span>January 11, 2026</span>
+          <span>•</span>
+          <span>5 min read</span>
+          <span>•</span>
+          <span>Product</span>
+        </div>
+      </header>
+
+      <!-- Content -->
+      <div class="prose prose-invert max-w-none text-legion-text">
+        
+        <p class="text-xl text-legion-muted leading-relaxed">
+          Today we're launching Onyx Legion, the first multi-AI deliberation platform. Instead of asking one AI and hoping for the best, Legion makes five models debate your question through four rounds before synthesizing a final answer.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">The Problem with Single-Model AI</h2>
+        
+        <p class="text-legion-muted">
+          Every AI model has blind spots. ChatGPT confidently states incorrect facts. Claude hedges when it should be direct. Gemini oversimplifies complex topics. Grok injects humor where you want substance. DeepSeek excels at reasoning but misses nuance.
+        </p>
+        
+        <p class="text-legion-muted">
+          When you ask one AI a question, you're betting that its particular strengths match your particular need—and that its particular weaknesses won't matter this time.
+        </p>
+        
+        <p class="text-legion-muted">
+          Power users know this. They maintain multiple AI subscriptions. They copy-paste the same question across different chat windows. They manually compare answers, trying to triangulate the truth. It works, but it's tedious.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">A Better Approach: Make Them Debate</h2>
+        
+        <p class="text-legion-muted">
+          What if instead of you comparing AI answers, the AIs compared each other's answers? What if they could critique, challenge, and refine their responses before you ever see them?
+        </p>
+        
+        <p class="text-legion-muted">
+          That's Legion Mode. Here's how it works:
+        </p>
+        
+        <ol class="text-legion-muted list-decimal">
+          <li><strong class="text-legion-text">Independent Answers:</strong> Five AI models (Claude, GPT-4o, Gemini, Grok, and DeepSeek) answer your question independently, without seeing each other's responses.</li>
+          <li><strong class="text-legion-text">Cross-Examination:</strong> Each model reads the others' answers and critiques them. They identify errors, gaps, weak reasoning, and unsupported claims.</li>
+          <li><strong class="text-legion-text">Refinement:</strong> Armed with peer feedback, each model revises its answer—defending valid points and incorporating legitimate criticism.</li>
+          <li><strong class="text-legion-text">Synthesis:</strong> A final response combines the consensus, highlights key insights, and notes any remaining disagreements.</li>
+        </ol>
+
+        <p class="text-legion-muted">
+          The result isn't just an average of five answers. It's a refined answer that's been stress-tested by multiple perspectives.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Why This Works</h2>
+        
+        <p class="text-legion-muted">
+          AI models catch each other's mistakes. Claude notices when GPT hallucinates a fact. GPT spots when Claude is being unnecessarily cautious. Gemini points out when others miss the broader context.
+        </p>
+        
+        <p class="text-legion-muted">
+          It's the same reason peer review works in science, why courts have opposing counsel, and why companies have boards instead of singular leaders. Multiple perspectives, properly structured, produce better outcomes.
+        </p>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Three Ways to Use Legion</h2>
+        
+        <p class="text-legion-muted">
+          Not every question needs a four-round debate. That's why we built three modes:
+        </p>
+        
+        <ul class="text-legion-muted list-disc">
+          <li><strong class="text-legion-text">Single Mode:</strong> Pick one AI. Fast and simple for quick questions. (20 tokens)</li>
+          <li><strong class="text-legion-text">Parallel Mode:</strong> Query all five AIs at once, see answers side-by-side. You compare. (100 tokens)</li>
+          <li><strong class="text-legion-text">Legion Mode:</strong> Full four-round deliberation with synthesis. (500 tokens)</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-legion-bright">Try It Free</h2>
+        
+        <p class="text-legion-muted">
+          We're launching today with a free tier: 600 tokens, enough to run a few Legion queries or a dozen single-model queries. No credit card required.
+        </p>
+        
+        <p class="text-legion-muted">
+          If you find it useful, subscriptions start at $9.99/month—less than a single ChatGPT Plus subscription, but with access to five models that debate each other.
+        </p>
+
+        <div class="my-12 p-8 rounded-2xl bg-legion-surface border border-legion-border text-center">
+          <p class="text-xl font-semibold text-legion-bright mb-4">Ready to see AI models debate?</p>
+          <a href="https://app.onyxlegion.ai" class="inline-block px-8 py-3 bg-accent text-legion-bg font-bold rounded-xl hover:bg-accent/90 transition-colors">
+            Launch Onyx Legion →
+          </a>
+        </div>
+
+        <h2 class="text-2xl font-bold text-legion-bright">What's Next</h2>
+        
+        <p class="text-legion-muted">
+          This is just the beginning. We're working on:
+        </p>
+        
+        <ul class="text-legion-muted list-disc">
+          <li>Mobile apps for iOS and Android</li>
+          <li>BYOK (Bring Your Own Keys) for users who want to use their own API credits</li>
+          <li>Enterprise features for teams and organizations</li>
+          <li>Additional models as they become available</li>
+        </ul>
+
+        <p class="text-legion-muted">
+          We'd love to hear what you think. Try it out and let us know what questions you throw at it.
+        </p>
+
+        <p class="text-legion-muted">
+          Many minds. One answer.
+        </p>
+
+        <p class="text-legion-muted mt-8">
+          — Mike Gibbs, Founder
+        </p>
+
+      </div>
+
+    </div>
+  </article>
+
+  <!-- More Posts -->
+  <section class="py-16 px-6 bg-legion-surface">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-xl font-bold text-legion-bright mb-8">More Posts</h2>
+      <div class="space-y-4">
+        <a href="/blog/why-ai-models-disagree" class="block p-6 rounded-xl bg-legion-elevated border border-legion-border hover:border-legion-muted transition-colors">
+          <h3 class="font-semibold text-legion-bright mb-1">Why AI Models Disagree (And Why That's Valuable)</h3>
+          <p class="text-sm text-legion-muted">Ask the same question to different AIs. You'll get different answers. Here's why that's actually useful.</p>
+        </a>
+        <a href="/blog/four-round-deliberation" class="block p-6 rounded-xl bg-legion-elevated border border-legion-border hover:border-legion-muted transition-colors">
+          <h3 class="font-semibold text-legion-bright mb-1">The Four-Round Deliberation Process Explained</h3>
+          <p class="text-sm text-legion-muted">A deep dive into how Legion Mode works behind the scenes.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+      <div class="flex items-center gap-2">
+        <img src="/assets/OnyxMark.png" alt="Onyx Legion" class="h-6 w-6">
+        <span class="text-sm text-legion-muted">© 2026 Onyx AI Labs. Toronto, Canada.</span>
+      </div>
+      <div class="flex gap-6 text-sm text-legion-muted">
+        <a href="/" class="hover:text-legion-text">Home</a>
+        <a href="/pricing" class="hover:text-legion-text">Pricing</a>
+        <a href="/about" class="hover:text-legion-text">About</a>
+        <a href="https://app.onyxlegion.ai/privacy.html" class="hover:text-legion-text">Privacy</a>
+        <a href="https://app.onyxlegion.ai/terms.html" class="hover:text-legion-text">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

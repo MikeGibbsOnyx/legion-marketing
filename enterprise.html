@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TGR51F91MH');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enterprise | Stop Building AI. Start Using It. | Onyx Legion</title>
+  <meta name="description" content="Legion is the AI control plane for enterprise. Connect your models to your people. Desktop, mobile, air-gapped. Complete governance, complete control.">
+  
+  <!-- SEO Keywords -->
+  <meta name="keywords" content="enterprise AI control plane, AI model deployment, air-gapped AI, on-premises AI, AI governance enterprise, multi-model AI platform, BYOK AI, AI audit trail, role-based AI access, enterprise AI adoption">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Legion Enterprise | Stop Building AI. Start Using It.">
+  <meta property="og:description" content="The AI control plane for enterprise. Connect any model to any user. Desktop, mobile, air-gapped. Full governance, zero custom development.">
+  <meta property="og:image" content="https://onyxlegion.ai/assets/LegionLogoDarkBG.png">
+  <meta property="og:url" content="https://onyxlegion.ai/enterprise.html">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Legion Enterprise | Stop Building AI. Start Using It.">
+  <meta name="twitter:description" content="The AI control plane for enterprise. Connect any model to any user. Full governance, zero custom development.">
+  <meta name="twitter:image" content="https://onyxlegion.ai/assets/LegionLogoDarkBG.png">
+  
+  <!-- Canonical -->
+  <link rel="canonical" href="https://onyxlegion.ai/enterprise.html">
+  
+  <!-- Product Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Onyx Legion Enterprise",
+    "description": "AI control plane for enterprise. Connect any AI model to your workforce with complete governance, audit trails, and role-based access. Supports cloud, on-premises, and air-gapped deployments.",
+    "url": "https://onyxlegion.ai/enterprise.html",
+    "brand": {
+      "@type": "Organization",
+      "name": "Onyx AI Labs"
+    },
+    "category": "Enterprise Software",
+    "offers": {
+      "@type": "Offer",
+      "availability": "https://schema.org/InStock",
+      "priceCurrency": "USD",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "Contact for pricing"
+      }
+    },
+    "featureList": [
+      "Multi-model AI orchestration",
+      "Air-gapped deployment",
+      "On-premises support",
+      "Role-based model access",
+      "Complete audit trails",
+      "SSO integration (SAML/OIDC)",
+      "MDM deployment",
+      "SIEM integration"
+    ],
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Enterprise IT, CTO, CISO, Data Science Leaders"
+    }
+  }
+  </script>
+  
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            legion: {
+              void: '#0a0a0f',
+              deep: '#12121a',
+              surface: '#1a1a24',
+              elevated: '#22222e',
+              border: '#2a2a3a',
+              muted: '#6b7280',
+              text: '#d1d5db',
+              bright: '#f3f4f6',
+            },
+            accent: {
+              primary: '#f59e0b',
+              secondary: '#fbbf24',
+              success: '#22c55e',
+              warning: '#eab308',
+              danger: '#ef4444',
+            }
+          },
+          fontFamily: {
+            display: ['Inter', 'system-ui', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
+      min-height: 100vh;
+    }
+    .glow-amber { box-shadow: 0 0 60px rgba(245, 158, 11, 0.15); }
+    .glow-red { box-shadow: 0 0 40px rgba(239, 68, 68, 0.15); }
+    .gradient-text {
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .pulse-slow { animation: pulse 3s ease-in-out infinite; }
+    @keyframes pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
+  </style>
+</head>
+<body class="text-legion-text font-display">
+
+  <!-- Firefly cursor effect -->
+  <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-legion-void/90 backdrop-blur-xl border-b border-legion-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Legion" class="h-8">
+        <span class="px-2 py-0.5 text-xs bg-accent-primary/20 text-accent-primary rounded-full font-semibold">ENTERPRISE</span>
+      </a>
+      <div class="flex items-center gap-6">
+        <a href="/" class="text-sm text-legion-muted hover:text-legion-text transition-colors">Home</a>
+        <a href="#contact" class="px-4 py-2 bg-accent-primary text-black font-semibold rounded-lg hover:bg-accent-secondary transition-colors text-sm">Contact Sales</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="py-24 px-6 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-30">
+      <div class="absolute top-20 left-1/4 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-1/4 w-64 h-64 bg-accent-primary/5 rounded-full blur-3xl"></div>
+    </div>
+    <div class="max-w-5xl mx-auto text-center relative z-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-primary/10 border border-accent-primary/30 text-accent-primary text-sm mb-8">
+        <span class="w-2 h-2 bg-accent-primary rounded-full pulse-slow"></span>
+        <span>The AI Control Plane for Enterprise</span>
+      </div>
+      <h1 class="text-5xl md:text-7xl font-bold text-legion-bright mb-6 leading-tight">
+        Stop Building AI.<br><span class="gradient-text">Start Using It.</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-legion-muted max-w-3xl mx-auto mb-10 leading-relaxed">
+        You've invested millions in AI models. They're sitting in notebooks and endpoints, 
+        unseen by the people who need them. <strong class="text-legion-text">Legion gets your AI into your employees' hands in days, not months.</strong>
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#contact" class="px-8 py-4 bg-accent-primary text-black font-bold rounded-xl hover:bg-accent-secondary transition-all text-lg shadow-lg shadow-accent-primary/20">Request Demo</a>
+        <a href="#problem" class="px-8 py-4 bg-legion-elevated border border-legion-border text-legion-text font-semibold rounded-xl hover:bg-legion-surface hover:border-accent-primary/30 transition-all text-lg">See the Problem</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Problem -->
+  <section id="problem" class="py-20 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4">The AI Graveyard Problem</h2>
+        <p class="text-lg text-legion-muted max-w-2xl mx-auto">Companies are spending trillions collectively on AI models. Most never get used.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="p-8 rounded-2xl bg-red-500/5 border border-red-500/20 glow-red">
+          <div class="w-14 h-14 rounded-xl bg-red-500/20 flex items-center justify-center text-3xl mb-6">💀</div>
+          <h3 class="text-xl font-bold text-legion-bright mb-3">$5M Models Gathering Dust</h3>
+          <p class="text-legion-muted">Data science builds a model. It lives in a Jupyter notebook. Team moves on. Business users never see it. Model becomes stale, gets deprecated. Repeat.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-red-500/5 border border-red-500/20 glow-red">
+          <div class="w-14 h-14 rounded-xl bg-red-500/20 flex items-center justify-center text-3xl mb-6">🚧</div>
+          <h3 class="text-xl font-bold text-legion-bright mb-3">The Access Problem</h3>
+          <p class="text-legion-muted">"We have a model!" Great. How do 10,000 employees use it? Building a UI isn't data science's job. IT won't prioritize it. Security blocks new apps.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-red-500/5 border border-red-500/20 glow-red">
+          <div class="w-14 h-14 rounded-xl bg-red-500/20 flex items-center justify-center text-3xl mb-6">🔒</div>
+          <h3 class="text-xl font-bold text-legion-bright mb-3">Governance Nightmare</h3>
+          <p class="text-legion-muted">6 models across 3 vendors. Who approved them? What data did they see? Are they compliant? Legal needs the legal model. Interns shouldn't.</p>
+        </div>
+      </div>
+      <div class="p-8 rounded-2xl bg-gradient-to-r from-accent-primary/10 to-transparent border border-accent-primary/30 glow-amber">
+        <div class="flex items-start gap-4">
+          <span class="text-4xl">💡</span>
+          <div>
+            <h4 class="font-bold text-accent-primary text-xl mb-2">The Real Problem</h4>
+            <p class="text-legion-text text-lg">The gap between "we have AI" and "our people use AI" is where billions in investment die. By the time anyone builds an interface, the model is outdated and the moment has passed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The Solution -->
+  <section class="py-20 px-6 bg-legion-deep/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4">Legion: The AI Control Plane</h2>
+        <p class="text-lg text-legion-muted max-w-2xl mx-auto">One app that connects all your models to all your people. Desktop, mobile, air-gapped.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8 mb-12">
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-accent-primary/20 flex items-center justify-center text-3xl">🔌</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Connect Any Model</h3><p class="text-sm text-accent-primary">Minutes, not months</p></div>
+          </div>
+          <ul class="space-y-3 text-legion-text">
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Cloud APIs (OpenAI, Anthropic, Google, Azure)</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Self-hosted (vLLM, Ollama, TGI, LocalAI)</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Your fine-tuned models (any OpenAI-compatible API)</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Air-gapped deployments for classified networks</span></li>
+          </ul>
+        </div>
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-accent-primary/20 flex items-center justify-center text-3xl">🎛️</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Control Who Sees What</h3><p class="text-sm text-accent-primary">Role-based model access</p></div>
+          </div>
+          <ul class="space-y-3 text-legion-text">
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Legal team → Legal model + Claude</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Finance team → Risk model + GPT-4</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Everyone else → General models only</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Interns → Nothing sensitive</span></li>
+          </ul>
+        </div>
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-accent-primary/20 flex items-center justify-center text-3xl">📋</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Full Audit Trail</h3><p class="text-sm text-accent-primary">Every query, every response</p></div>
+          </div>
+          <ul class="space-y-3 text-legion-text">
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Who asked what, when, to which model</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Complete response logging</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>SIEM integration (Splunk, QRadar)</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Compliance-ready exports</span></li>
+          </ul>
+        </div>
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-accent-primary/20 flex items-center justify-center text-3xl">🚀</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Deploy Anywhere</h3><p class="text-sm text-accent-primary">Desktop, mobile, web</p></div>
+          </div>
+          <ul class="space-y-3 text-legion-text">
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Windows, macOS, iOS, Android</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>MDM deployment (Jamf, Intune, SCCM)</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>SSO integration (SAML, OIDC)</span></li>
+            <li class="flex items-start gap-3"><span class="text-accent-primary mt-1">✓</span><span>Works offline for air-gapped networks</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="p-8 rounded-2xl bg-gradient-to-r from-accent-primary/20 to-accent-primary/5 border-2 border-accent-primary glow-amber text-center">
+        <h3 class="text-2xl font-bold text-legion-bright mb-4">"You've already invested in AI. Legion gets it into your employees' hands."</h3>
+        <p class="text-lg text-legion-text max-w-2xl mx-auto">Point us at your endpoints. Configure permissions. Deploy to devices. <strong class="text-accent-primary">Done.</strong> No custom app development. No 6-month project. No more wasted models.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deliberation Bonus -->
+  <section class="py-20 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="text-sm text-accent-primary font-semibold uppercase tracking-wider">Bonus</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4 mt-2">Multi-AI Deliberation Built In</h2>
+        <p class="text-lg text-legion-muted max-w-2xl mx-auto">When your users need higher confidence, Legion can cross-reference across multiple models automatically.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-4xl mb-4">🎯</div>
+          <h3 class="font-bold text-legion-bright mb-2">Reduced Hallucination</h3>
+          <p class="text-sm text-legion-muted">Multiple models agreeing = higher confidence for regulated decisions</p>
+        </div>
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-4xl mb-4">⚖️</div>
+          <h3 class="font-bold text-legion-bright mb-2">Defensible Decisions</h3>
+          <p class="text-sm text-legion-muted">"4 of 5 models agreed on this recommendation" holds up to regulators</p>
+        </div>
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-4xl mb-4">🔀</div>
+          <h3 class="font-bold text-legion-bright mb-2">Vendor Independence</h3>
+          <p class="text-sm text-legion-muted">Not locked into one AI provider's roadmap, pricing, or outages</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="py-20 px-6 bg-legion-deep/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4">Built for Regulated Industries</h2>
+        <p class="text-lg text-legion-muted max-w-2xl mx-auto">Where "trust us with your data" isn't good enough.</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center text-3xl">🏥</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Healthcare</h3><p class="text-sm text-blue-400">HIPAA Compliant</p></div>
+          </div>
+          <p class="text-legion-muted">PHI stays on-premise. Connect Legion to your internal medical LLM. Deliberate across perspectives without patient data leaving your network.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center text-3xl">🏦</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Financial Services</h3><p class="text-sm text-green-400">SOX / GLBA Compliant</p></div>
+          </div>
+          <p class="text-legion-muted">Run your own risk models. Deliberate between Llama, your fine-tuned risk model, and Azure OpenAI. All within your firewall.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-purple-500/20 flex items-center justify-center text-3xl">⚖️</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Legal</h3><p class="text-sm text-purple-400">Attorney-Client Privilege</p></div>
+          </div>
+          <p class="text-legion-muted">Privileged information protected. Run Legion against your document corpus and internal legal knowledge base. Never expose client data.</p>
+        </div>
+        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-14 h-14 rounded-xl bg-red-500/20 flex items-center justify-center text-3xl">🏛️</div>
+            <div><h3 class="text-xl font-bold text-legion-bright">Government & Defense</h3><p class="text-sm text-red-400">Air-Gapped Networks</p></div>
+          </div>
+          <p class="text-legion-muted">True air-gap operation. Legion desktop works with zero internet connectivity. Run entirely on SIPR/JWICS networks with approved local models.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admin Dashboard Preview -->
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4">Enterprise Admin Dashboard</h2>
+        <p class="text-lg text-legion-muted max-w-2xl mx-auto">Complete visibility into your AI usage across the organization.</p>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6 mb-8">
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-3xl font-bold text-accent-primary mb-1">147</div>
+          <div class="text-sm text-legion-muted">Active Users</div>
+        </div>
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-3xl font-bold text-accent-primary mb-1">12,847</div>
+          <div class="text-sm text-legion-muted">Queries This Month</div>
+        </div>
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-3xl font-bold text-accent-primary mb-1">8</div>
+          <div class="text-sm text-legion-muted">Connected Models</div>
+        </div>
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border text-center">
+          <div class="text-3xl font-bold text-accent-primary mb-1">$4,231</div>
+          <div class="text-sm text-legion-muted">API Costs</div>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border">
+          <h4 class="font-bold text-legion-bright mb-4">Model Usage by Department</h4>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between"><span class="text-legion-text">Legal</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-3/4 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted">4,231</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-legion-text">Finance</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-1/2 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted">2,847</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-legion-text">Engineering</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-2/5 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted">2,103</span></div></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-xl bg-legion-surface border border-legion-border">
+          <h4 class="font-bold text-legion-bright mb-4">Model Registry</h4>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Claude 3.5 Sonnet</span></div><span class="text-xs text-legion-muted">Cloud API</span></div>
+            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Legal-LLM-v3</span></div><span class="text-xs text-legion-muted">On-Premise</span></div>
+            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Risk-Model-Q4</span></div><span class="text-xs text-legion-muted">vLLM Cluster</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What's Included -->
+  <section class="py-20 px-6 bg-legion-deep/50">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4">What's Included</h2>
+        <p class="text-lg text-legion-muted">Everything you need to deploy AI across your organization</p>
+      </div>
+      <div class="p-8 rounded-2xl bg-gradient-to-b from-accent-primary/10 to-legion-surface border-2 border-accent-primary glow-amber">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="font-bold text-legion-bright text-lg mb-4">Platform & Access</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Web, Desktop, iOS, Android apps</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Unlimited model connections</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> SSO integration (SAML/OIDC)</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Role-based model access</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> MDM deployment support</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-legion-bright text-lg mb-4">Governance & Compliance</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Full audit trail</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Complete response logging</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> SIEM integration</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Compliance-ready exports</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Data retention controls</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-legion-bright text-lg mb-4">Deployment Options</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Cloud hosted</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> On-premise deployment</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Air-gapped networks</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Hybrid configurations</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-bold text-legion-bright text-lg mb-4">Support & Service</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Dedicated account manager</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Implementation support</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> Training & onboarding</li>
+              <li class="flex items-center gap-3 text-legion-text"><span class="text-accent-primary">✓</span> SLA guarantee</li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-accent-primary/30 text-center">
+          <p class="text-legion-text mb-4">Pricing based on seats, models, and deployment requirements.</p>
+          <a href="#contact" class="inline-block px-8 py-3 bg-accent-primary text-black font-bold rounded-xl hover:bg-accent-secondary transition-colors">Let's Talk →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-4">Unlock Your AI Investment</h2>
+      <p class="text-lg text-legion-muted mb-10">Tell us about your models. We'll show you how fast we can get them into your people's hands.</p>
+      <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
+        <form class="space-y-6" action="mailto:enterprise@onyxailabs.com" method="GET">
+          <div class="grid md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Your name" class="w-full px-4 py-3 bg-legion-elevated border border-legion-border rounded-xl text-legion-text placeholder-legion-muted focus:border-accent-primary focus:outline-none transition-colors" required>
+            <input type="email" name="cc" placeholder="Work email" class="w-full px-4 py-3 bg-legion-elevated border border-legion-border rounded-xl text-legion-text placeholder-legion-muted focus:border-accent-primary focus:outline-none transition-colors" required>
+          </div>
+          <input type="text" placeholder="Company" class="w-full px-4 py-3 bg-legion-elevated border border-legion-border rounded-xl text-legion-text placeholder-legion-muted focus:border-accent-primary focus:outline-none transition-colors">
+          <select class="w-full px-4 py-3 bg-legion-elevated border border-legion-border rounded-xl text-legion-muted focus:border-accent-primary focus:outline-none transition-colors">
+            <option>How many AI models do you have?</option>
+            <option>1-3 models</option>
+            <option>4-10 models</option>
+            <option>10+ models</option>
+            <option>We're evaluating</option>
+          </select>
+          <textarea name="body" placeholder="Tell us about your AI investment and the challenges getting it into production..." rows="4" class="w-full px-4 py-3 bg-legion-elevated border border-legion-border rounded-xl text-legion-text placeholder-legion-muted focus:border-accent-primary focus:outline-none transition-colors resize-none"></textarea>
+          <button type="submit" class="w-full py-4 bg-accent-primary text-black font-bold rounded-xl hover:bg-accent-secondary transition-colors text-lg">Request Demo</button>
+        </form>
+        <p class="mt-6 text-sm text-legion-muted">Or email us directly at <a href="mailto:enterprise@onyxailabs.com" class="text-accent-primary hover:underline">enterprise@onyxailabs.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-3">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Legion" class="h-8">
+      </div>
+      <p class="text-sm text-legion-muted">© 2026 Onyx AI Labs. All rights reserved.</p>
+      <div class="flex gap-6 text-sm">
+        <a href="/terms.html" class="text-legion-muted hover:text-legion-text transition-colors">Terms</a>
+        <a href="/privacy.html" class="text-legion-muted hover:text-legion-text transition-colors">Privacy</a>
+        <a href="https://app.onyxlegion.ai" class="text-accent-primary hover:text-accent-secondary transition-colors">Try Legion →</a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Particle/Firefly cursor glow effect (from app)
+    (function() {
+      const canvas = document.getElementById('particle-canvas');
+      if (!canvas) return;
+      
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      
+      // Skip on touch devices
+      if (!window.matchMedia('(pointer: fine)').matches) {
+        canvas.style.display = 'none';
+        return;
+      }
+      
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+      
+      let mouseX = width / 2;
+      let mouseY = height / 2;
+      let currentX = mouseX;
+      let currentY = mouseY;
+      let isActive = false;
+      let fadeTimeout;
+      
+      const glowColor = '#f59e0b'; // Amber accent for enterprise
+      
+      document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        isActive = true;
+        
+        clearTimeout(fadeTimeout);
+        fadeTimeout = setTimeout(() => {
+          isActive = false;
+        }, 2000);
+      });
+      
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+      
+      let alpha = 0;
+      
+      function animate() {
+        ctx.clearRect(0, 0, width, height);
+        
+        const ease = 0.08;
+        currentX += (mouseX - currentX) * ease;
+        currentY += (mouseY - currentY) * ease;
+        
+        const targetAlpha = isActive ? 0.15 : 0;
+        alpha += (targetAlpha - alpha) * 0.05;
+        
+        if (alpha > 0.01) {
+          const gradient = ctx.createRadialGradient(
+            currentX, currentY, 0,
+            currentX, currentY, 80
+          );
+          
+          const alphaHex = Math.round(alpha * 255).toString(16).padStart(2, '0');
+          const halfAlphaHex = Math.round(alpha * 128).toString(16).padStart(2, '0');
+          
+          gradient.addColorStop(0, glowColor + alphaHex);
+          gradient.addColorStop(0.4, glowColor + halfAlphaHex);
+          gradient.addColorStop(1, 'transparent');
+          
+          ctx.fillStyle = gradient;
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 80, 0, Math.PI * 2);
+          ctx.fill();
+          
+          ctx.beginPath();
+          ctx.arc(currentX, currentY, 2, 0, Math.PI * 2);
+          ctx.fillStyle = glowColor;
+          ctx.globalAlpha = alpha * 3;
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+        
+        requestAnimationFrame(animate);
+      }
+      
+      animate();
+    })();
+  </script>
+</body>
+</html>
