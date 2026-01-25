@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
+  <!-- Theme Script (must be first to avoid flash) -->
+  <script>
+    // Initialize theme before page renders
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
   <script>
@@ -36,6 +45,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -48,6 +58,15 @@
               'muted': '#71717a',
               'bright': '#fafafa',
             },
+            'light': {
+              'bg': '#ffffff',
+              'surface': '#f8f9fa',
+              'elevated': '#ffffff',
+              'border': '#e5e7eb',
+              'text': '#1f2937',
+              'muted': '#6b7280',
+              'bright': '#111827',
+            },
             'accent': '#00d4aa',
           }
         }
@@ -59,23 +78,33 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
   </style>
 </head>
-<body class="bg-legion-bg text-legion-text antialiased">
+<body class="bg-legion-bg dark:bg-legion-bg bg-light-bg text-legion-text dark:text-legion-text text-light-text antialiased transition-colors duration-200">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="/#how-it-works" class="text-legion-muted hover:text-legion-text transition-colors">How It Works</a>
+        <a href="/#how-it-works" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">How It Works</a>
         <a href="/enterprise.html" class="text-amber-500 hover:text-amber-400 transition-colors font-medium">Enterprise</a>
-        <a href="/pricing.html" class="text-legion-text font-medium">Pricing</a>
-        <a href="https://www.onyxailabs.com" class="text-legion-muted hover:text-legion-text transition-colors">Onyx AI Labs</a>
+        <a href="/pricing.html" class="text-legion-text dark:text-legion-text text-light-text font-medium">Pricing</a>
+        <a href="https://www.onyxailabs.com" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">Onyx AI Labs</a>
       </div>
-      <a href="https://app.onyxlegion.ai" class="px-6 py-2 rounded-full bg-accent text-legion-bg font-bold hover:bg-accent/90 transition-colors">
-        Get Started
-      </a>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-legion-elevated dark:hover:bg-legion-elevated hover:bg-light-elevated transition-colors" aria-label="Toggle theme">
+          <svg id="theme-icon-sun" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+          </svg>
+          <svg id="theme-icon-moon" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+        <a href="https://app.onyxlegion.ai" class="px-6 py-2 rounded-full bg-accent text-legion-bg dark:text-legion-bg text-white font-bold hover:bg-accent/90 transition-colors">
+          Get Started
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -86,7 +115,7 @@
         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
         <span class="text-sm text-accent font-medium">Coming soon: iOS, macOS and Android</span>
       </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-legion-bright mb-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         Simple, Transparent Pricing
       </h1>
       <p class="text-xl text-legion-muted max-w-2xl mx-auto">
@@ -98,15 +127,15 @@
   <!-- Subscriptions -->
   <section class="py-16 px-6">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright mb-2">Monthly Subscriptions</h2>
+      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-2">Monthly Subscriptions</h2>
       <p class="text-center text-legion-muted mb-12">Tokens renew monthly. Cancel anytime.</p>
 
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Legionnaire -->
         <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
-          <h3 class="text-xl font-semibold text-legion-bright mb-1">Legionnaire</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Legionnaire</h3>
           <p class="text-legion-muted text-sm mb-4">For regular users</p>
-          <div class="text-4xl font-bold text-legion-bright mb-1">$9.99<span class="text-lg text-legion-muted">/mo</span></div>
+          <div class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$9.99<span class="text-lg text-legion-muted">/mo</span></div>
           <p class="text-accent font-semibold mb-6">3,000 tokens</p>
           <ul class="space-y-3 text-sm text-legion-muted mb-8">
             <li class="flex items-center gap-2">
@@ -132,9 +161,9 @@
           <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-legion-bg text-xs font-bold rounded-full">
             ⚔️ MOST POPULAR
           </div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-1">Centurion</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Centurion</h3>
           <p class="text-legion-muted text-sm mb-4">For power users</p>
-          <div class="text-4xl font-bold text-legion-bright mb-1">$19.99<span class="text-lg text-legion-muted">/mo</span></div>
+          <div class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$19.99<span class="text-lg text-legion-muted">/mo</span></div>
           <p class="text-accent font-semibold mb-6">8,000 tokens</p>
           <ul class="space-y-3 text-sm text-legion-muted mb-8">
             <li class="flex items-center gap-2">
@@ -157,9 +186,9 @@
 
         <!-- Legatus -->
         <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
-          <h3 class="text-xl font-semibold text-legion-bright mb-1">Legatus</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Legatus</h3>
           <p class="text-legion-muted text-sm mb-4">For teams & pros</p>
-          <div class="text-4xl font-bold text-legion-bright mb-1">$49.99<span class="text-lg text-legion-muted">/mo</span></div>
+          <div class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$49.99<span class="text-lg text-legion-muted">/mo</span></div>
           <p class="text-accent font-semibold mb-6">25,000 tokens</p>
           <ul class="space-y-3 text-sm text-legion-muted mb-8">
             <li class="flex items-center gap-2">
@@ -186,22 +215,22 @@
   <!-- Token Packs -->
   <section class="py-16 px-6 bg-legion-surface">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright mb-2">Token Packs</h2>
+      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-2">Token Packs</h2>
       <p class="text-center text-legion-muted mb-12">One-time purchase. Tokens never expire.</p>
 
       <div class="grid md:grid-cols-4 gap-4">
         <!-- Quick -->
         <div class="p-6 rounded-xl bg-legion-elevated border border-legion-border text-center">
-          <h3 class="font-semibold text-legion-bright mb-1">Quick Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright mb-1">$3.99</div>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Quick Pack</h3>
+          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$3.99</div>
           <p class="text-accent text-sm mb-4">2,500 tokens</p>
           <p class="text-xs text-legion-muted">$1.60 / 1K tokens</p>
         </div>
 
         <!-- Power -->
         <div class="p-6 rounded-xl bg-legion-elevated border border-legion-border text-center">
-          <h3 class="font-semibold text-legion-bright mb-1">Power Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright mb-1">$14.99</div>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Power Pack</h3>
+          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$14.99</div>
           <p class="text-accent text-sm mb-4">6,000 tokens</p>
           <p class="text-xs text-legion-muted">$2.50 / 1K tokens</p>
         </div>
@@ -211,16 +240,16 @@
           <div class="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-accent text-legion-bg text-xs font-bold rounded-full">
             🔥 BEST VALUE
           </div>
-          <h3 class="font-semibold text-legion-bright mb-1">Legion Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright mb-1">$34.99</div>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Legion Pack</h3>
+          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$34.99</div>
           <p class="text-accent text-sm mb-4">15,000 tokens</p>
           <p class="text-xs text-legion-muted">$2.33 / 1K tokens</p>
         </div>
 
         <!-- Command -->
         <div class="p-6 rounded-xl bg-legion-elevated border border-legion-border text-center">
-          <h3 class="font-semibold text-legion-bright mb-1">Command Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright mb-1">$79.99</div>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Command Pack</h3>
+          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$79.99</div>
           <p class="text-accent text-sm mb-4">40,000 tokens</p>
           <p class="text-xs text-legion-muted">$2.00 / 1K tokens</p>
         </div>
@@ -237,12 +266,12 @@
   <!-- Token Costs -->
   <section class="py-16 px-6">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright mb-12">Token Usage</h2>
+      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-12">Token Usage</h2>
 
       <div class="space-y-4">
         <div class="flex items-center justify-between p-4 rounded-xl bg-legion-surface border border-legion-border">
           <div>
-            <h3 class="font-semibold text-legion-bright">Single Mode</h3>
+            <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright">Single Mode</h3>
             <p class="text-sm text-legion-muted">Query one AI model</p>
           </div>
           <div class="text-right">
@@ -253,7 +282,7 @@
 
         <div class="flex items-center justify-between p-4 rounded-xl bg-legion-surface border border-legion-border">
           <div>
-            <h3 class="font-semibold text-legion-bright">Parallel Mode</h3>
+            <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright">Parallel Mode</h3>
             <p class="text-sm text-legion-muted">Query all 5 AIs side-by-side</p>
           </div>
           <div class="text-right">
@@ -264,7 +293,7 @@
 
         <div class="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-accent/30">
           <div>
-            <h3 class="font-semibold text-legion-bright">Legion Mode</h3>
+            <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright">Legion Mode</h3>
             <p class="text-sm text-legion-muted">4-round deliberation + synthesis</p>
           </div>
           <div class="text-right">
@@ -285,31 +314,31 @@
   <!-- FAQ -->
   <section class="py-16 px-6 bg-legion-surface">
     <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright mb-12">Questions?</h2>
+      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-12">Questions?</h2>
 
       <div class="space-y-6">
         <div>
-          <h3 class="font-semibold text-legion-bright mb-2">Do tokens expire?</h3>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Do tokens expire?</h3>
           <p class="text-legion-muted">Token packs never expire. Subscription tokens reset monthly.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-legion-bright mb-2">Can I cancel anytime?</h3>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Can I cancel anytime?</h3>
           <p class="text-legion-muted">Yes. Cancel your subscription anytime. You'll keep access until the end of your billing period.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-legion-bright mb-2">What payment methods do you accept?</h3>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">What payment methods do you accept?</h3>
           <p class="text-legion-muted">All major credit cards via Stripe. Secure and encrypted.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-legion-bright mb-2">Is there a refund policy?</h3>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Is there a refund policy?</h3>
           <p class="text-legion-muted">Subscriptions can be canceled anytime. Token packs are non-refundable once purchased.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-legion-bright mb-2">Can I use my own API keys?</h3>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Can I use my own API keys?</h3>
           <p class="text-legion-muted">Yes! BYOK (Bring Your Own Keys) is available in Settings. Use your own API keys for unlimited queries at your own cost.</p>
         </div>
         <div>
-          <h3 class="font-semibold text-legion-bright mb-2">Need enterprise features?</h3>
+          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Need enterprise features?</h3>
           <p class="text-legion-muted">Contact us at <a href="mailto:enterprise@onyxailabs.com" class="text-accent hover:underline">enterprise@onyxailabs.com</a> for custom plans, SSO, audit logging, air-gapped deployment, and on-premise options.</p>
         </div>
       </div>
@@ -319,7 +348,7 @@
   <!-- CTA -->
   <section class="py-24 px-6">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-legion-bright mb-6">
+      <h2 class="text-3xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
         Ready to get started?
       </h2>
       <p class="text-lg text-legion-muted mb-8">Start with our smallest pack or choose a subscription.</p>
@@ -343,7 +372,7 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-legion-bright mb-3">Product</h4>
+          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Product</h4>
           <ul class="space-y-2 text-sm text-legion-muted">
             <li><a href="/#how-it-works" class="hover:text-legion-text">How It Works</a></li>
             <li><a href="/pricing.html" class="hover:text-legion-text">Pricing</a></li>
@@ -353,7 +382,7 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-legion-bright mb-3">Company</h4>
+          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Company</h4>
           <ul class="space-y-2 text-sm text-legion-muted">
             <li><a href="https://www.onyxailabs.com" class="hover:text-legion-text">Onyx AI Labs</a></li>
             <li><a href="https://www.onyxailabs.com/research/" class="hover:text-legion-text">Research</a></li>
@@ -362,7 +391,7 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-legion-bright mb-3">Legal</h4>
+          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Legal</h4>
           <ul class="space-y-2 text-sm text-legion-muted">
             <li><a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a></li>
             <li><a href="/terms.html" class="hover:text-legion-text">Terms of Service</a></li>
@@ -376,6 +405,40 @@
       </div>
     </div>
   </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains('dark')) {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        } else {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        }
+      }
+
+      // Initialize icons
+      updateIcons();
+
+      themeToggle.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.theme = 'light';
+        } else {
+          html.classList.add('dark');
+          localStorage.theme = 'dark';
+        }
+        updateIcons();
+      });
+    })();
+  </script>
 
 </body>
 </html>
