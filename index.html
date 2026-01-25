@@ -93,10 +93,10 @@
             'light': {
               'bg': '#ffffff',
               'surface': '#f8f9fa',
-              'elevated': '#ffffff',
-              'border': '#e5e7eb',
-              'text': '#1f2937',
-              'muted': '#6b7280',
+              'elevated': '#f3f4f6',
+              'border': '#d1d5db',
+              'text': '#374151',
+              'muted': '#4b5563',
               'bright': '#111827',
             },
             'accent': '#00d4aa',
@@ -148,7 +148,8 @@
   <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
-        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10 hidden dark:block">
+        <img src="/assets/LegionLogoLightBG.png" alt="Onyx Legion" class="h-10 block dark:hidden">
       </a>
       <div class="hidden md:flex items-center gap-8">
         <a href="#how-it-works" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">How It Works</a>
@@ -184,7 +185,7 @@
         Many Minds. <span class="gradient-text">One Answer.</span>
       </h1>
 
-      <p class="text-xl md:text-2xl text-legion-muted max-w-3xl mx-auto mb-16">
+      <p class="text-xl md:text-2xl text-legion-muted dark:text-legion-muted text-light-muted max-w-3xl mx-auto mb-16">
         Query the world's leading AI models simultaneously. Get a single, synthesized response that combines the best of each. No more tab-switching. No more conflicting answers. Just clarity.
       </p>
 
@@ -221,7 +222,7 @@
         <div class="absolute inset-0 bg-gradient-to-t from-legion-bg/80 to-transparent rounded-2xl z-10"></div>
         <img src="/assets/Legion_Round_1.png" alt="Legion Mode - 5 AI models debating" class="rounded-xl w-full opacity-80">
         <div class="absolute bottom-8 left-0 right-0 text-center z-20">
-          <p class="text-lg text-legion-muted">Preview of Legion Mode in action</p>
+          <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted">Preview of Legion Mode in action</p>
         </div>
       </div>
     </div>
@@ -234,7 +235,7 @@
         <h2 class="text-3xl md:text-5xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
           The AI Paradox
         </h2>
-        <p class="text-xl text-legion-muted max-w-3xl mx-auto">
+        <p class="text-xl text-legion-muted dark:text-legion-muted text-light-muted max-w-3xl mx-auto">
           You have access to more AI power than ever—Claude, GPT, Gemini, Grok, DeepSeek—yet making decisions has never been harder.
         </p>
       </div>
@@ -243,7 +244,7 @@
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🎯</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Every Model Has Blind Spots</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Claude excels at nuance. GPT at breadth. Gemini at current events. Grok at unfiltered takes. DeepSeek at technical depth.
           </p>
         </div>
@@ -251,7 +252,7 @@
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">⚖️</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">You're Playing Referee</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Opening multiple tabs. Comparing contradictory answers. Wondering which AI to trust. Spending more time managing than thinking.
           </p>
         </div>
@@ -259,7 +260,7 @@
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">❌</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">No Accountability</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             One AI giving you one answer with no peer review, no fact-checking, no challenge. AIs sound authoritative even when they're wrong.
           </p>
         </div>
@@ -278,7 +279,7 @@
         <h2 class="text-3xl md:text-5xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
           One Query. Every Perspective. One Answer.
         </h2>
-        <p class="text-xl text-legion-muted max-w-3xl mx-auto">
+        <p class="text-xl text-legion-muted dark:text-legion-muted text-light-muted max-w-3xl mx-auto">
           Legion sends your question to multiple AI models in parallel, then synthesizes their responses into a single, well-reasoned answer—complete with areas of agreement, disagreement, and nuance.
         </p>
       </div>
@@ -289,7 +290,7 @@
             <span class="text-2xl">1️⃣</span>
           </div>
           <h3 class="text-xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Ask Once</h3>
-          <p class="text-legion-muted">Type your question once. Legion handles the rest—no copy-pasting, no tab management.</p>
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted">Type your question once. Legion handles the rest—no copy-pasting, no tab management.</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
@@ -297,7 +298,7 @@
             <span class="text-2xl">⚡</span>
           </div>
           <h3 class="text-xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Parallel Processing</h3>
-          <p class="text-legion-muted">Your query goes to Claude, GPT, Gemini, Grok, and DeepSeek—simultaneously.</p>
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted">Your query goes to Claude, GPT, Gemini, Grok, and DeepSeek—simultaneously.</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
@@ -305,7 +306,7 @@
             <span class="text-2xl">👁️</span>
           </div>
           <h3 class="text-xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">See Every Angle</h3>
-          <p class="text-legion-muted">View each model's individual response side-by-side. Complete transparency into their reasoning.</p>
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted">View each model's individual response side-by-side. Complete transparency into their reasoning.</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-model-deepseek/10 border border-accent/30">
@@ -325,7 +326,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         How Legion Mode Works
       </h2>
-      <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
+      <p class="text-center text-legion-muted dark:text-legion-muted text-light-muted mb-16 max-w-2xl mx-auto">
         Unlike other AI tools, Legion makes models debate and refine their answers before you see them. This is structured deliberation, not simple comparison.
       </p>
 
@@ -336,7 +337,7 @@
             <span class="text-2xl font-bold text-accent">1</span>
           </div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Independent Answers</h3>
-          <p class="text-legion-muted text-sm">
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted text-sm">
             All 5 AIs answer your question independently, without seeing each other. Pure, unbiased first responses.
           </p>
         </div>
@@ -347,7 +348,7 @@
             <span class="text-2xl font-bold text-accent">2</span>
           </div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Cross-Examination</h3>
-          <p class="text-legion-muted text-sm">
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted text-sm">
             Each AI critiques the others. They identify mistakes, gaps, weak arguments, and unexamined assumptions.
           </p>
         </div>
@@ -358,7 +359,7 @@
             <span class="text-2xl font-bold text-accent">3</span>
           </div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Refinement</h3>
-          <p class="text-legion-muted text-sm">
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted text-sm">
             AIs defend valid points and incorporate criticism into improved answers. Self-correction in action.
           </p>
         </div>
@@ -369,7 +370,7 @@
             <span class="text-2xl font-bold text-accent">4</span>
           </div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Synthesis</h3>
-          <p class="text-legion-muted text-sm">
+          <p class="text-legion-muted dark:text-legion-muted text-light-muted text-sm">
             Final answer synthesizes consensus, key insights, and areas of disagreement into one coherent response.
           </p>
         </div>
@@ -389,7 +390,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         Built for How You Actually Work
       </h2>
-      <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
+      <p class="text-center text-legion-muted dark:text-legion-muted text-light-muted mb-16 max-w-2xl mx-auto">
         Every feature designed to give you better answers, faster.
       </p>
 
@@ -397,7 +398,7 @@
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🧠</div>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Multi-Model Deliberation</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Why trust one AI when you can consult many? Legion's deliberation engine weighs multiple perspectives to surface the most reliable answer.
           </p>
         </div>
@@ -405,7 +406,7 @@
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🔍</div>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Complete Transparency</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             See exactly how each model responded. Drill into individual answers. Understand where they agree—and where they don't.
           </p>
         </div>
@@ -413,7 +414,7 @@
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🎛️</div>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Model Selection</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Choose which models to query. All of them. Just the top three. Or your custom combination. You're in control.
           </p>
         </div>
@@ -421,7 +422,7 @@
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">💬</div>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Conversation Memory</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Legion remembers context across your session. Follow-up questions build on previous answers—no re-explaining required.
           </p>
         </div>
@@ -429,7 +430,7 @@
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">📥</div>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Export & Share</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Download responses as markdown, PDF, or share a link. Perfect for research, documentation, or collaboration.
           </p>
         </div>
@@ -437,7 +438,7 @@
         <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🔐</div>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">BYOK for Power Users</h3>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Use your own API keys for unlimited queries. Complete control over costs and usage.
           </p>
         </div>
@@ -451,7 +452,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         When to Use Legion Mode
       </h2>
-      <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
+      <p class="text-center text-legion-muted dark:text-legion-muted text-light-muted mb-16 max-w-2xl mx-auto">
         Legion is overkill for "write me a poem." Use it when accuracy matters.
       </p>
 
@@ -459,41 +460,41 @@
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">⚖️</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Legal Analysis</h3>
-          <p class="text-sm text-legion-muted mb-4">Contract review, compliance checks, case research. Mistakes are expensive.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-4">Contract review, compliance checks, case research. Mistakes are expensive.</p>
           <p class="text-xs text-accent italic">"I used to spend hours cross-referencing AI responses. Legion gives me the synthesis in seconds—with citations to each model's reasoning." — Research Analyst</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">🏗️</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Engineering Design</h3>
-          <p class="text-sm text-legion-muted mb-4">System architecture, security review, failure mode analysis.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-4">System architecture, security review, failure mode analysis.</p>
           <p class="text-xs text-accent italic">"When evaluating architectural approaches, I want multiple expert opinions. Legion is like having a panel of senior engineers on call." — Engineering Lead</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">💊</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Medical Research</h3>
-          <p class="text-sm text-legion-muted">Diagnostic reasoning, drug interactions, clinical decision support.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Diagnostic reasoning, drug interactions, clinical decision support.</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">💰</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Financial Modeling</h3>
-          <p class="text-sm text-legion-muted mb-4">Investment analysis, risk assessment, scenario planning.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-4">Investment analysis, risk assessment, scenario planning.</p>
           <p class="text-xs text-accent italic">"In M&A, missing a single risk factor can be catastrophic. Legion's multi-model approach catches things a single AI would miss." — Investment Professional</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">📊</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Strategic Planning</h3>
-          <p class="text-sm text-legion-muted mb-4">Market analysis, competitor research, product roadmaps.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-4">Market analysis, competitor research, product roadmaps.</p>
           <p class="text-xs text-accent italic">"For content strategy, I need creative ideas AND practical constraints. Legion gives me both perspectives in one response." — Marketing Director</p>
         </div>
 
         <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">🔬</div>
           <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Academic Research</h3>
-          <p class="text-sm text-legion-muted">Literature review, methodology critique, hypothesis testing.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Literature review, methodology critique, hypothesis testing.</p>
         </div>
       </div>
     </div>
@@ -510,35 +511,35 @@
         <table class="w-full">
           <thead>
             <tr class="border-b-2 border-legion-border">
-              <th class="text-left py-4 px-6 text-legion-muted font-medium"></th>
-              <th class="text-center py-4 px-6 text-legion-muted font-medium">Single AI Chat</th>
+              <th class="text-left py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted font-medium"></th>
+              <th class="text-center py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted font-medium">Single AI Chat</th>
               <th class="text-center py-4 px-6 text-accent font-medium">Legion</th>
             </tr>
           </thead>
           <tbody>
             <tr class="border-b border-legion-border/50">
               <td class="py-4 px-6 text-legion-text font-medium">Perspectives</td>
-              <td class="text-center py-4 px-6 text-legion-muted">One model's view</td>
+              <td class="text-center py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted">One model's view</td>
               <td class="text-center py-4 px-6 text-accent">Multiple models synthesized</td>
             </tr>
             <tr class="border-b border-legion-border/50">
               <td class="py-4 px-6 text-legion-text font-medium">Blind Spots</td>
-              <td class="text-center py-4 px-6 text-legion-muted">Hidden</td>
+              <td class="text-center py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted">Hidden</td>
               <td class="text-center py-4 px-6 text-accent">Exposed through disagreement</td>
             </tr>
             <tr class="border-b border-legion-border/50">
               <td class="py-4 px-6 text-legion-text font-medium">Confidence</td>
-              <td class="text-center py-4 px-6 text-legion-muted">"Trust me"</td>
+              <td class="text-center py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted">"Trust me"</td>
               <td class="text-center py-4 px-6 text-accent">Consensus-validated</td>
             </tr>
             <tr class="border-b border-legion-border/50">
               <td class="py-4 px-6 text-legion-text font-medium">Workflow</td>
-              <td class="text-center py-4 px-6 text-legion-muted">Tab-switching, copy-paste</td>
+              <td class="text-center py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted">Tab-switching, copy-paste</td>
               <td class="text-center py-4 px-6 text-accent">One interface, one answer</td>
             </tr>
             <tr>
               <td class="py-4 px-6 text-legion-text font-medium">Enterprise Control</td>
-              <td class="text-center py-4 px-6 text-legion-muted">Limited</td>
+              <td class="text-center py-4 px-6 text-legion-muted dark:text-legion-muted text-light-muted">Limited</td>
               <td class="text-center py-4 px-6 text-accent">Full audit, access, filtering</td>
             </tr>
           </tbody>
@@ -553,7 +554,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         Why 5 AIs > 1 AI
       </h2>
-      <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
+      <p class="text-center text-legion-muted dark:text-legion-muted text-light-muted mb-16 max-w-2xl mx-auto">
         Internal benchmarks from 200+ deliberations across legal, medical, and technical domains.
       </p>
 
@@ -561,17 +562,17 @@
         <div class="text-center p-6">
           <div class="text-5xl font-bold gradient-text mb-3">2.3x</div>
           <p class="text-legion-text font-semibold mb-2">More Errors Caught</p>
-          <p class="text-sm text-legion-muted">Cross-examination surfaces mistakes that single models miss or defend.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Cross-examination surfaces mistakes that single models miss or defend.</p>
         </div>
         <div class="text-center p-6">
           <div class="text-5xl font-bold gradient-text mb-3">34%</div>
           <p class="text-legion-text font-semibold mb-2">Quality Improvement</p>
-          <p class="text-sm text-legion-muted">Measured by expert human review on depth, accuracy, and completeness.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Measured by expert human review on depth, accuracy, and completeness.</p>
         </div>
         <div class="text-center p-6">
           <div class="text-5xl font-bold gradient-text mb-3">67%</div>
           <p class="text-legion-text font-semibold mb-2">Bias Reduction</p>
-          <p class="text-sm text-legion-muted">Fewer model-specific quirks, hallucinations, and overconfident claims.</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Fewer model-specific quirks, hallucinations, and overconfident claims.</p>
         </div>
       </div>
     </div>
@@ -589,10 +590,10 @@
             <h3 class="text-2xl md:text-3xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">
               Stop Building AI. Start Using It.
             </h3>
-            <p class="text-legion-muted mb-4">
+            <p class="text-legion-muted dark:text-legion-muted text-light-muted mb-4">
               You've invested millions in AI models. They're sitting unused. Legion is the control plane that connects your models to your people—desktop, mobile, air-gapped.
             </p>
-            <ul class="space-y-2 text-sm text-legion-muted mb-6">
+            <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-6">
               <li class="flex items-start gap-2">
                 <span class="text-amber-500">✓</span>
                 <span>Complete data sovereignty—your queries never leave your environment</span>
@@ -619,7 +620,7 @@
           </div>
           <div class="flex-shrink-0 text-center">
             <div class="text-6xl mb-2">🏢</div>
-            <p class="text-sm text-legion-muted">Your Models.<br>Your People.<br>Your Control.</p>
+            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Your Models.<br>Your People.<br>Your Control.</p>
           </div>
         </div>
       </div>
@@ -632,7 +633,7 @@
       <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
         Stop Guessing. Start Knowing.
       </h2>
-      <p class="text-xl text-legion-muted">
+      <p class="text-xl text-legion-muted dark:text-legion-muted text-light-muted">
         One question. Multiple AIs. One synthesized answer.
       </p>
     </div>
@@ -644,44 +645,45 @@
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div>
           <div class="flex items-center gap-2 mb-4">
-            <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-6">
+            <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-6 hidden dark:block">
+            <img src="/assets/LegionLogoLightBG.png" alt="Onyx Legion" class="h-6 block dark:hidden">
           </div>
-          <p class="text-sm text-legion-muted">
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
             Multi-AI deliberation platform by Onyx AI Labs.
           </p>
         </div>
 
         <div>
           <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Product</h4>
-          <ul class="space-y-2 text-sm text-legion-muted">
-            <li><a href="#how-it-works" class="hover:text-legion-text">How It Works</a></li>
-            <li><a href="/pricing.html" class="hover:text-legion-text">Pricing</a></li>
-            <li><a href="/enterprise.html" class="hover:text-legion-text">Enterprise</a></li>
-            <li><a href="https://app.onyxlegion.ai" class="hover:text-legion-text">Get Started</a></li>
+          <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted">
+            <li><a href="#how-it-works" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">How It Works</a></li>
+            <li><a href="/pricing.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Pricing</a></li>
+            <li><a href="/enterprise.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Enterprise</a></li>
+            <li><a href="https://app.onyxlegion.ai" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Get Started</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Company</h4>
-          <ul class="space-y-2 text-sm text-legion-muted">
-            <li><a href="https://www.onyxailabs.com" class="hover:text-legion-text">Onyx AI Labs</a></li>
-            <li><a href="https://www.onyxailabs.com/research/" class="hover:text-legion-text">Research</a></li>
-            <li><a href="/blog" class="hover:text-legion-text">Blog</a></li>
-            <li><a href="mailto:inquiries@onyxailabs.com" class="hover:text-legion-text">Contact</a></li>
+          <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted">
+            <li><a href="https://www.onyxailabs.com" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Onyx AI Labs</a></li>
+            <li><a href="https://www.onyxailabs.com/research/" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Research</a></li>
+            <li><a href="/blog" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Blog</a></li>
+            <li><a href="mailto:inquiries@onyxailabs.com" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Contact</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm text-legion-muted">
-            <li><a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a></li>
-            <li><a href="/terms.html" class="hover:text-legion-text">Terms of Service</a></li>
-            <li><a href="/security.html" class="hover:text-legion-text">Security</a></li>
+          <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted">
+            <li><a href="/privacy.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Privacy Policy</a></li>
+            <li><a href="/terms.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Terms of Service</a></li>
+            <li><a href="/security.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Security</a></li>
           </ul>
         </div>
       </div>
 
-      <div class="pt-8 border-t border-legion-border text-center text-sm text-legion-muted">
+      <div class="pt-8 border-t border-legion-border text-center text-sm text-legion-muted dark:text-legion-muted text-light-muted">
         © 2026 Onyx AI Labs Inc. Toronto, Canada.
       </div>
     </div>
@@ -789,11 +791,11 @@
 
       function updateIcons() {
         if (html.classList.contains('dark')) {
-          sunIcon.classList.add('hidden');
-          moonIcon.classList.remove('hidden');
-        } else {
           sunIcon.classList.remove('hidden');
           moonIcon.classList.add('hidden');
+        } else {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
         }
       }
 
