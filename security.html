@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Security | Onyx Legion</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'legion': {
+              'bg': '#0a0a0f',
+              'surface': '#12121a',
+              'elevated': '#1a1a24',
+              'border': '#2a2a3a',
+              'text': '#e4e4e7',
+              'muted': '#71717a',
+              'bright': '#fafafa',
+            },
+            'accent': '#00d4aa',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    body { font-family: 'Inter', system-ui, sans-serif; }
+  </style>
+</head>
+<body class="bg-legion-bg text-legion-text antialiased">
+
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
+      </a>
+      <a href="/" class="text-legion-muted hover:text-legion-text transition-colors">← Back to Home</a>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <h1 class="text-4xl font-bold text-legion-bright mb-4">Security</h1>
+      <p class="text-legion-muted mb-12">How we protect your data</p>
+
+      <div class="space-y-8 text-legion-text">
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Our Commitment</h2>
+          <p class="text-legion-muted leading-relaxed">
+            Security is fundamental to everything we build. Onyx Legion is designed and operated by the team behind SureStep, an 18-year SOC 2 Type 2 compliant GRC consultancy serving global financial institutions. We understand enterprise security requirements.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Data Encryption</h2>
+          <h3 class="text-xl font-semibold text-legion-bright mb-2">In Transit</h3>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted mb-4">
+            <li>All data transmitted over TLS 1.3</li>
+            <li>Strong cipher suites only (AES-256, ChaCha20-Poly1305)</li>
+            <li>Certificate pinning on mobile apps</li>
+          </ul>
+          <h3 class="text-xl font-semibold text-legion-bright mb-2">At Rest</h3>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li>Database encryption using AES-256</li>
+            <li>Encrypted backups</li>
+            <li>Secrets stored in Google Cloud Secret Manager</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Authentication & Access Control</h2>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li><strong>Multi-Factor Authentication:</strong> Support for phone, email, Google, and Microsoft auth</li>
+            <li><strong>JWT Tokens:</strong> Signed with HMAC-SHA256, 4-hour expiry</li>
+            <li><strong>Token Versioning:</strong> Logout invalidates all existing tokens</li>
+            <li><strong>Password Requirements:</strong> 12+ characters with complexity rules</li>
+            <li><strong>Common Password Blocking:</strong> Protection against known weak passwords</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Application Security</h2>
+          <h3 class="text-xl font-semibold text-legion-bright mb-2">API Security</h3>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted mb-4">
+            <li>Rate limiting on all endpoints (prevents DoS attacks)</li>
+            <li>Payload size validation (prevents resource exhaustion)</li>
+            <li>Input sanitization (prevents injection attacks)</li>
+            <li>CORS policy enforcement</li>
+          </ul>
+          <h3 class="text-xl font-semibold text-legion-bright mb-2">Data Isolation</h3>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li>User data scoped to authenticated user ID</li>
+            <li>Server-side ownership validation on all operations</li>
+            <li>No cross-user data leakage (IDOR protection)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Infrastructure Security</h2>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li><strong>Cloud Platform:</strong> Google Cloud Platform (SOC 2, ISO 27001 certified)</li>
+            <li><strong>Database:</strong> Cloud SQL with automated backups and point-in-time recovery</li>
+            <li><strong>Compute:</strong> Cloud Run with automatic scaling and isolation</li>
+            <li><strong>Monitoring:</strong> Real-time logging and alerting for security events</li>
+            <li><strong>DDoS Protection:</strong> Google Cloud Armor</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Third-Party Security</h2>
+          <p class="text-legion-muted leading-relaxed mb-4">We carefully vet all third-party services:</p>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li><strong>Stripe:</strong> PCI DSS Level 1 certified payment processing</li>
+            <li><strong>Firebase:</strong> Google-managed authentication with security best practices</li>
+            <li><strong>SendGrid:</strong> SOC 2 Type II certified email delivery</li>
+            <li><strong>AI Providers:</strong> Enterprise agreements with Anthropic, OpenAI, Google, xAI, DeepSeek</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Vulnerability Management</h2>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li>Regular security audits and penetration testing</li>
+            <li>Automated dependency scanning</li>
+            <li>Responsible disclosure program</li>
+            <li>Timely patching of identified vulnerabilities</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Enterprise Security</h2>
+          <p class="text-legion-muted leading-relaxed mb-4">For enterprise customers, we offer:</p>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li><strong>On-Premise Deployment:</strong> Run Legion entirely within your infrastructure</li>
+            <li><strong>Air-Gapped Networks:</strong> Support for classified and disconnected environments</li>
+            <li><strong>SSO Integration:</strong> SAML and OIDC support</li>
+            <li><strong>Audit Logging:</strong> Complete query and response logging</li>
+            <li><strong>SIEM Integration:</strong> Export logs to Splunk, QRadar, etc.</li>
+            <li><strong>Role-Based Access:</strong> Control which users can access which models</li>
+            <li><strong>Data Residency:</strong> Choose where your data is stored</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Compliance</h2>
+          <p class="text-legion-muted leading-relaxed mb-4">
+            Onyx AI Labs is built with compliance in mind. Our parent company (SureStep) has 18 years of experience helping organizations meet:
+          </p>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+            <li>SOC 2 Type II</li>
+            <li>ISO 27001</li>
+            <li>GDPR (European data protection)</li>
+            <li>HIPAA (healthcare data)</li>
+            <li>SOX (financial reporting)</li>
+            <li>GLBA (financial services)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Incident Response</h2>
+          <p class="text-legion-muted leading-relaxed">
+            In the event of a security incident, we follow a documented incident response plan that includes containment, investigation, remediation, and notification procedures. Affected users will be notified within 72 hours of confirmed data breaches.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Report a Vulnerability</h2>
+          <p class="text-legion-muted leading-relaxed">
+            If you discover a security vulnerability, please report it responsibly:<br><br>
+            <strong>Email:</strong> <a href="mailto:security@onyxailabs.com" class="text-accent hover:underline">security@onyxailabs.com</a><br><br>
+            We take all reports seriously and will respond within 48 hours.
+          </p>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="py-12 px-6 border-t border-legion-border">
+    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted">
+      <div class="flex justify-center gap-6 mb-4">
+        <a href="/terms.html" class="hover:text-legion-text">Terms of Service</a>
+        <a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a>
+        <a href="/security.html" class="hover:text-legion-text">Security</a>
+      </div>
+      <p>© 2026 Onyx AI Labs Inc. Toronto, Canada.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
