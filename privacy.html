@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
+  <!-- Theme Script (must be first to avoid flash) -->
+  <script>
+    // Initialize theme before page renders
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy | Onyx Legion</title>
@@ -8,6 +17,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -20,6 +30,15 @@
               'muted': '#71717a',
               'bright': '#fafafa',
             },
+            'light': {
+              'bg': '#ffffff',
+              'surface': '#f8f9fa',
+              'elevated': '#ffffff',
+              'border': '#e5e7eb',
+              'text': '#1f2937',
+              'muted': '#6b7280',
+              'bright': '#111827',
+            },
             'accent': '#00d4aa',
           }
         }
@@ -31,50 +50,60 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
   </style>
 </head>
-<body class="bg-legion-bg text-legion-text antialiased">
+<body class="bg-legion-bg dark:bg-legion-bg bg-light-bg text-legion-text dark:text-legion-text text-light-text antialiased transition-colors duration-200">
 
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
       </a>
-      <a href="/" class="text-legion-muted hover:text-legion-text transition-colors">← Back to Home</a>
+      <div class="flex items-center gap-4">
+        <a href="/" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">← Back to Home</a>
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-legion-elevated dark:hover:bg-legion-elevated hover:bg-light-elevated transition-colors" aria-label="Toggle theme">
+          <svg id="theme-icon-sun" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+          </svg>
+          <svg id="theme-icon-moon" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- Content -->
   <main class="pt-32 pb-20 px-6">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold text-legion-bright mb-4">Privacy Policy</h1>
+      <h1 class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Privacy Policy</h1>
       <p class="text-legion-muted mb-12">Last updated: January 25, 2026</p>
 
       <div class="space-y-8 text-legion-text">
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">1. Introduction</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">1. Introduction</h2>
           <p class="text-legion-muted leading-relaxed">
             Onyx AI Labs Inc. ("we," "us," or "our") operates Onyx Legion, a multi-AI deliberation platform. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our services.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">2. Information We Collect</h2>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Account Information</h3>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">2. Information We Collect</h2>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Account Information</h3>
           <p class="text-legion-muted leading-relaxed mb-4">
             When you create an account, we collect your email address, name, and authentication credentials. For phone authentication, we collect and verify your phone number.
           </p>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Usage Data</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Usage Data</h3>
           <p class="text-legion-muted leading-relaxed mb-4">
             We collect information about your interactions with our platform, including queries submitted, AI models selected, token usage, and response preferences.
           </p>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Payment Information</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Payment Information</h3>
           <p class="text-legion-muted leading-relaxed">
             Payment processing is handled by Stripe. We do not store complete credit card numbers. We retain transaction IDs, amounts, and subscription status.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">3. How We Use Your Information</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">3. How We Use Your Information</h2>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li>To provide, maintain, and improve our services</li>
             <li>To process transactions and manage subscriptions</li>
@@ -86,7 +115,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">4. Data Sharing and Disclosure</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">4. Data Sharing and Disclosure</h2>
           <p class="text-legion-muted leading-relaxed mb-4">
             We do not sell your personal information. We share your data only in the following circumstances:
           </p>
@@ -98,21 +127,21 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">5. Data Retention</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">5. Data Retention</h2>
           <p class="text-legion-muted leading-relaxed">
             We retain your account information and conversation history for as long as your account is active. You may delete your account and all associated data at any time through the Settings page. Deleted data is permanently removed within 30 days.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">6. Security</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">6. Security</h2>
           <p class="text-legion-muted leading-relaxed">
             We implement industry-standard security measures to protect your information, including encryption in transit (TLS), encrypted data at rest, secure authentication (JWT tokens), and regular security audits. However, no method of transmission over the Internet is 100% secure.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">7. Your Rights</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">7. Your Rights</h2>
           <p class="text-legion-muted leading-relaxed mb-4">You have the right to:</p>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li>Access your personal information</li>
@@ -124,21 +153,21 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">8. Children's Privacy</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">8. Children's Privacy</h2>
           <p class="text-legion-muted leading-relaxed">
             Our services are not intended for users under 13 years of age. We do not knowingly collect information from children under 13.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">9. Changes to This Policy</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">9. Changes to This Policy</h2>
           <p class="text-legion-muted leading-relaxed">
             We may update this Privacy Policy from time to time. We will notify you of significant changes via email or through the platform.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">10. Contact Us</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">10. Contact Us</h2>
           <p class="text-legion-muted leading-relaxed">
             If you have questions about this Privacy Policy, please contact us at:<br><br>
             <strong>Onyx AI Labs Inc.</strong><br>
@@ -151,16 +180,50 @@
   </main>
 
   <!-- Footer -->
-  <footer class="py-12 px-6 border-t border-legion-border">
-    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted">
+  <footer class="py-12 px-6 border-t border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
+    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted dark:text-legion-muted text-light-muted">
       <div class="flex justify-center gap-6 mb-4">
-        <a href="/terms.html" class="hover:text-legion-text">Terms of Service</a>
-        <a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a>
-        <a href="/security.html" class="hover:text-legion-text">Security</a>
+        <a href="/terms.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Terms of Service</a>
+        <a href="/privacy.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Privacy Policy</a>
+        <a href="/security.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Security</a>
       </div>
       <p>© 2026 Onyx AI Labs Inc. Toronto, Canada.</p>
     </div>
   </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains('dark')) {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        } else {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        }
+      }
+
+      // Initialize icons
+      updateIcons();
+
+      themeToggle.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.theme = 'light';
+        } else {
+          html.classList.add('dark');
+          localStorage.theme = 'dark';
+        }
+        updateIcons();
+      });
+    })();
+  </script>
 
 </body>
 </html>

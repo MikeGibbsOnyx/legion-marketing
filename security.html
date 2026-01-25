@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
+  <!-- Theme Script (must be first to avoid flash) -->
+  <script>
+    // Initialize theme before page renders
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Security | Onyx Legion</title>
@@ -8,6 +17,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -20,6 +30,15 @@
               'muted': '#71717a',
               'bright': '#fafafa',
             },
+            'light': {
+              'bg': '#ffffff',
+              'surface': '#f8f9fa',
+              'elevated': '#ffffff',
+              'border': '#e5e7eb',
+              'text': '#1f2937',
+              'muted': '#6b7280',
+              'bright': '#111827',
+            },
             'accent': '#00d4aa',
           }
         }
@@ -31,39 +50,49 @@
     body { font-family: 'Inter', system-ui, sans-serif; }
   </style>
 </head>
-<body class="bg-legion-bg text-legion-text antialiased">
+<body class="bg-legion-bg dark:bg-legion-bg bg-light-bg text-legion-text dark:text-legion-text text-light-text antialiased transition-colors duration-200">
 
-  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
       </a>
-      <a href="/" class="text-legion-muted hover:text-legion-text transition-colors">← Back to Home</a>
+      <div class="flex items-center gap-4">
+        <a href="/" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">← Back to Home</a>
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-legion-elevated dark:hover:bg-legion-elevated hover:bg-light-elevated transition-colors" aria-label="Toggle theme">
+          <svg id="theme-icon-sun" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+          </svg>
+          <svg id="theme-icon-moon" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
   <main class="pt-32 pb-20 px-6">
     <div class="max-w-4xl mx-auto">
-      <h1 class="text-4xl font-bold text-legion-bright mb-4">Security</h1>
+      <h1 class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Security</h1>
       <p class="text-legion-muted mb-12">How we protect your data</p>
 
       <div class="space-y-8 text-legion-text">
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Our Commitment</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Our Commitment</h2>
           <p class="text-legion-muted leading-relaxed">
             Security is fundamental to everything we build. Onyx Legion is designed and operated by the team behind SureStep, an 18-year SOC 2 Type 2 compliant GRC consultancy serving global financial institutions. We understand enterprise security requirements.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Data Encryption</h2>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">In Transit</h3>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Data Encryption</h2>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">In Transit</h3>
           <ul class="list-disc list-inside space-y-2 text-legion-muted mb-4">
             <li>All data transmitted over TLS 1.3</li>
             <li>Strong cipher suites only (AES-256, ChaCha20-Poly1305)</li>
             <li>Certificate pinning on mobile apps</li>
           </ul>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">At Rest</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">At Rest</h3>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li>Database encryption using AES-256</li>
             <li>Encrypted backups</li>
@@ -72,7 +101,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Authentication & Access Control</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Authentication & Access Control</h2>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li><strong>Multi-Factor Authentication:</strong> Support for phone, email, Google, and Microsoft auth</li>
             <li><strong>JWT Tokens:</strong> Signed with HMAC-SHA256, 4-hour expiry</li>
@@ -83,15 +112,15 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Application Security</h2>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">API Security</h3>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Application Security</h2>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">API Security</h3>
           <ul class="list-disc list-inside space-y-2 text-legion-muted mb-4">
             <li>Rate limiting on all endpoints (prevents DoS attacks)</li>
             <li>Payload size validation (prevents resource exhaustion)</li>
             <li>Input sanitization (prevents injection attacks)</li>
             <li>CORS policy enforcement</li>
           </ul>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Data Isolation</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Data Isolation</h3>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li>User data scoped to authenticated user ID</li>
             <li>Server-side ownership validation on all operations</li>
@@ -100,7 +129,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Infrastructure Security</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Infrastructure Security</h2>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li><strong>Cloud Platform:</strong> Google Cloud Platform (SOC 2, ISO 27001 certified)</li>
             <li><strong>Database:</strong> Cloud SQL with automated backups and point-in-time recovery</li>
@@ -111,7 +140,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Third-Party Security</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Third-Party Security</h2>
           <p class="text-legion-muted leading-relaxed mb-4">We carefully vet all third-party services:</p>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li><strong>Stripe:</strong> PCI DSS Level 1 certified payment processing</li>
@@ -122,7 +151,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Vulnerability Management</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Vulnerability Management</h2>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li>Regular security audits and penetration testing</li>
             <li>Automated dependency scanning</li>
@@ -132,7 +161,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Enterprise Security</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Enterprise Security</h2>
           <p class="text-legion-muted leading-relaxed mb-4">For enterprise customers, we offer:</p>
           <ul class="list-disc list-inside space-y-2 text-legion-muted">
             <li><strong>On-Premise Deployment:</strong> Run Legion entirely within your infrastructure</li>
@@ -146,7 +175,7 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Compliance</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Compliance</h2>
           <p class="text-legion-muted leading-relaxed mb-4">
             Onyx AI Labs is built with compliance in mind. Our parent company (SureStep) has 18 years of experience helping organizations meet:
           </p>
@@ -161,14 +190,14 @@
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Incident Response</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Incident Response</h2>
           <p class="text-legion-muted leading-relaxed">
             In the event of a security incident, we follow a documented incident response plan that includes containment, investigation, remediation, and notification procedures. Affected users will be notified within 72 hours of confirmed data breaches.
           </p>
         </section>
 
         <section>
-          <h2 class="text-2xl font-semibold text-legion-bright mb-4">Report a Vulnerability</h2>
+          <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Report a Vulnerability</h2>
           <p class="text-legion-muted leading-relaxed">
             If you discover a security vulnerability, please report it responsibly:<br><br>
             <strong>Email:</strong> <a href="mailto:security@onyxailabs.com" class="text-accent hover:underline">security@onyxailabs.com</a><br><br>
@@ -179,16 +208,50 @@
     </div>
   </main>
 
-  <footer class="py-12 px-6 border-t border-legion-border">
-    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted">
+  <footer class="py-12 px-6 border-t border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
+    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted dark:text-legion-muted text-light-muted">
       <div class="flex justify-center gap-6 mb-4">
-        <a href="/terms.html" class="hover:text-legion-text">Terms of Service</a>
-        <a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a>
-        <a href="/security.html" class="hover:text-legion-text">Security</a>
+        <a href="/terms.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Terms of Service</a>
+        <a href="/privacy.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Privacy Policy</a>
+        <a href="/security.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Security</a>
       </div>
       <p>© 2026 Onyx AI Labs Inc. Toronto, Canada.</p>
     </div>
   </footer>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains('dark')) {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        } else {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        }
+      }
+
+      // Initialize icons
+      updateIcons();
+
+      themeToggle.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.theme = 'light';
+        } else {
+          html.classList.add('dark');
+          localStorage.theme = 'dark';
+        }
+        updateIcons();
+      });
+    })();
+  </script>
 
 </body>
 </html>
