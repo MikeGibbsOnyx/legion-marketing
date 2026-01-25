@@ -100,10 +100,10 @@
             light: {
               bg: '#ffffff',
               surface: '#f8f9fa',
-              elevated: '#ffffff',
-              border: '#e5e7eb',
-              text: '#1f2937',
-              muted: '#6b7280',
+              elevated: '#f3f4f6',
+              border: '#d1d5db',
+              text: '#374151',
+              muted: '#4b5563',
               bright: '#111827',
             },
             accent: {
@@ -150,7 +150,8 @@
   <header class="sticky top-0 z-50 bg-legion-void/90 dark:bg-legion-void/90 bg-white/90 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
-        <img src="/assets/LegionLogoDarkBG.png" alt="Legion" class="h-8">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Legion" class="h-8 hidden dark:block">
+        <img src="/assets/LegionLogoLightBG.png" alt="Legion" class="h-8 block dark:hidden">
         <span class="px-2 py-0.5 text-xs bg-accent-primary/20 text-accent-primary rounded-full font-semibold">ENTERPRISE</span>
       </a>
       <div class="flex items-center gap-6">
@@ -182,7 +183,7 @@
       <h1 class="text-5xl md:text-7xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6 leading-tight">
         Stop Building AI.<br><span class="gradient-text">Start Using It.</span>
       </h1>
-      <p class="text-xl md:text-2xl text-legion-muted max-w-3xl mx-auto mb-10 leading-relaxed">
+      <p class="text-xl md:text-2xl text-legion-muted dark:text-legion-muted text-light-muted max-w-3xl mx-auto mb-10 leading-relaxed">
         You've invested millions in AI models. They're sitting in notebooks and endpoints, 
         unseen by the people who need them. <strong class="text-legion-text">Legion gets your AI into your employees' hands in days, not months.</strong>
       </p>
@@ -234,7 +235,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">The AI Graveyard Problem</h2>
-        <p class="text-lg text-legion-muted max-w-2xl mx-auto">Companies are spending trillions collectively on AI models. Most never get used.</p>
+        <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted max-w-2xl mx-auto">Companies are spending trillions collectively on AI models. Most never get used.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6 mb-12">
         <div class="p-8 rounded-2xl bg-red-500/5 border border-red-500/20 glow-red">
@@ -270,7 +271,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Legion: The AI Control Plane</h2>
-        <p class="text-lg text-legion-muted max-w-2xl mx-auto">One app that connects all your models to all your people. Desktop, mobile, air-gapped.</p>
+        <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted max-w-2xl mx-auto">One app that connects all your models to all your people. Desktop, mobile, air-gapped.</p>
       </div>
       <div class="grid md:grid-cols-2 gap-8 mb-12">
         <div class="p-8 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
@@ -333,23 +334,23 @@
       <div class="text-center mb-16">
         <span class="text-sm text-accent-primary font-semibold uppercase tracking-wider">Bonus</span>
         <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4 mt-2">Multi-AI Deliberation Built In</h2>
-        <p class="text-lg text-legion-muted max-w-2xl mx-auto">When your users need higher confidence, Legion can cross-reference across multiple models automatically.</p>
+        <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted max-w-2xl mx-auto">When your users need higher confidence, Legion can cross-reference across multiple models automatically.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-6">
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-4xl mb-4">🎯</div>
           <h3 class="font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Reduced Hallucination</h3>
-          <p class="text-sm text-legion-muted">Multiple models agreeing = higher confidence for regulated decisions</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Multiple models agreeing = higher confidence for regulated decisions</p>
         </div>
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-4xl mb-4">⚖️</div>
           <h3 class="font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Defensible Decisions</h3>
-          <p class="text-sm text-legion-muted">"4 of 5 models agreed on this recommendation" holds up to regulators</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">"4 of 5 models agreed on this recommendation" holds up to regulators</p>
         </div>
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-4xl mb-4">🔀</div>
           <h3 class="font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Vendor Independence</h3>
-          <p class="text-sm text-legion-muted">Not locked into one AI provider's roadmap, pricing, or outages</p>
+          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Not locked into one AI provider's roadmap, pricing, or outages</p>
         </div>
       </div>
     </div>
@@ -360,7 +361,7 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Built for Regulated Industries</h2>
-        <p class="text-lg text-legion-muted max-w-2xl mx-auto">Where "trust us with your data" isn't good enough.</p>
+        <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted max-w-2xl mx-auto">Where "trust us with your data" isn't good enough.</p>
       </div>
       <div class="grid md:grid-cols-2 gap-8">
         <div class="p-8 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
@@ -400,41 +401,41 @@
     <div class="max-w-6xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Enterprise Admin Dashboard</h2>
-        <p class="text-lg text-legion-muted max-w-2xl mx-auto">Complete visibility into your AI usage across the organization.</p>
+        <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted max-w-2xl mx-auto">Complete visibility into your AI usage across the organization.</p>
       </div>
       <div class="grid md:grid-cols-4 gap-6 mb-8">
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-3xl font-bold text-accent-primary mb-1">147</div>
-          <div class="text-sm text-legion-muted">Active Users</div>
+          <div class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Active Users</div>
         </div>
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-3xl font-bold text-accent-primary mb-1">12,847</div>
-          <div class="text-sm text-legion-muted">Queries This Month</div>
+          <div class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Queries This Month</div>
         </div>
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-3xl font-bold text-accent-primary mb-1">8</div>
-          <div class="text-sm text-legion-muted">Connected Models</div>
+          <div class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Connected Models</div>
         </div>
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200 text-center">
           <div class="text-3xl font-bold text-accent-primary mb-1">$4,231</div>
-          <div class="text-sm text-legion-muted">API Costs</div>
+          <div class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">API Costs</div>
         </div>
       </div>
       <div class="grid md:grid-cols-2 gap-6">
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <h4 class="font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Model Usage by Department</h4>
           <div class="space-y-3">
-            <div class="flex items-center justify-between"><span class="text-legion-text">Legal</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-3/4 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted">4,231</span></div></div>
-            <div class="flex items-center justify-between"><span class="text-legion-text">Finance</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-1/2 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted">2,847</span></div></div>
-            <div class="flex items-center justify-between"><span class="text-legion-text">Engineering</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-2/5 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted">2,103</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-legion-text">Legal</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-3/4 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">4,231</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-legion-text">Finance</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-1/2 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">2,847</span></div></div>
+            <div class="flex items-center justify-between"><span class="text-legion-text">Engineering</span><div class="flex items-center gap-2"><div class="w-32 h-2 bg-legion-elevated rounded-full overflow-hidden"><div class="w-2/5 h-full bg-accent-primary rounded-full"></div></div><span class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">2,103</span></div></div>
           </div>
         </div>
         <div class="p-6 rounded-xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <h4 class="font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Model Registry</h4>
           <div class="space-y-3">
-            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Claude 3.5 Sonnet</span></div><span class="text-xs text-legion-muted">Cloud API</span></div>
-            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Legal-LLM-v3</span></div><span class="text-xs text-legion-muted">On-Premise</span></div>
-            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Risk-Model-Q4</span></div><span class="text-xs text-legion-muted">vLLM Cluster</span></div>
+            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Claude 3.5 Sonnet</span></div><span class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">Cloud API</span></div>
+            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Legal-LLM-v3</span></div><span class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">On-Premise</span></div>
+            <div class="flex items-center justify-between p-2 bg-legion-elevated rounded-lg"><div class="flex items-center gap-3"><span class="w-2 h-2 bg-green-400 rounded-full"></span><span class="text-legion-text">Risk-Model-Q4</span></div><span class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">vLLM Cluster</span></div>
           </div>
         </div>
       </div>
@@ -446,7 +447,7 @@
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">What's Included</h2>
-        <p class="text-lg text-legion-muted">Everything you need to deploy AI across your organization</p>
+        <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted">Everything you need to deploy AI across your organization</p>
       </div>
       <div class="p-8 rounded-2xl bg-gradient-to-b from-accent-primary/10 to-legion-surface border-2 border-accent-primary glow-amber">
         <div class="grid md:grid-cols-2 gap-8">
@@ -499,7 +500,7 @@
   <section id="contact" class="py-20 px-6">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Unlock Your AI Investment</h2>
-      <p class="text-lg text-legion-muted mb-10">Tell us about your models. We'll show you how fast we can get them into your people's hands.</p>
+      <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted mb-10">Tell us about your models. We'll show you how fast we can get them into your people's hands.</p>
       <div class="p-8 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
         <div class="space-y-6">
           <div class="text-center py-8">
@@ -515,7 +516,7 @@
 
           <div class="pt-6 border-t border-legion-border">
             <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4 text-center">What to Include in Your Email:</h4>
-            <ul class="space-y-3 text-sm text-legion-muted max-w-lg mx-auto">
+            <ul class="space-y-3 text-sm text-legion-muted dark:text-legion-muted text-light-muted max-w-lg mx-auto">
               <li class="flex items-start gap-3">
                 <span class="text-accent-primary mt-0.5">•</span>
                 <span><strong class="text-legion-text">Your name and company</strong></span>
@@ -545,7 +546,7 @@
       <div class="flex items-center gap-3">
         <img src="/assets/LegionLogoDarkBG.png" alt="Legion" class="h-8">
       </div>
-      <p class="text-sm text-legion-muted">© 2026 Onyx AI Labs. All rights reserved.</p>
+      <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">© 2026 Onyx AI Labs. All rights reserved.</p>
       <div class="flex gap-6 text-sm">
         <a href="/terms.html" class="text-legion-muted hover:text-legion-text transition-colors">Terms</a>
         <a href="/privacy.html" class="text-legion-muted hover:text-legion-text transition-colors">Privacy</a>
@@ -651,11 +652,11 @@
 
       function updateIcons() {
         if (html.classList.contains('dark')) {
-          sunIcon.classList.add('hidden');
-          moonIcon.classList.remove('hidden');
-        } else {
           sunIcon.classList.remove('hidden');
           moonIcon.classList.add('hidden');
+        } else {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
         }
       }
 
