@@ -33,10 +33,10 @@
             'light': {
               'bg': '#ffffff',
               'surface': '#f8f9fa',
-              'elevated': '#ffffff',
-              'border': '#e5e7eb',
-              'text': '#1f2937',
-              'muted': '#6b7280',
+              'elevated': '#f3f4f6',
+              'border': '#d1d5db',
+              'text': '#374151',
+              'muted': '#4b5563',
               'bright': '#111827',
             },
             'accent': '#00d4aa',
@@ -55,7 +55,8 @@
   <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
-        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
+        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10 hidden dark:block">
+        <img src="/assets/LegionLogoLightBG.png" alt="Onyx Legion" class="h-10 block dark:hidden">
       </a>
       <div class="flex items-center gap-4">
         <a href="/" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">← Back to Home</a>
@@ -93,7 +94,7 @@
 
         <section>
           <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">3. User Accounts</h2>
-          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+          <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted">
             <li>You must provide accurate and complete information when creating an account</li>
             <li>You are responsible for maintaining the security of your account credentials</li>
             <li>You must be at least 13 years old to use our services</li>
@@ -105,7 +106,7 @@
         <section>
           <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">4. Acceptable Use</h2>
           <p class="text-legion-muted leading-relaxed mb-4">You agree NOT to:</p>
-          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+          <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted">
             <li>Use the service for any illegal purpose</li>
             <li>Attempt to gain unauthorized access to our systems</li>
             <li>Use automated systems to scrape or extract data</li>
@@ -118,14 +119,14 @@
         <section>
           <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">5. Payment and Billing</h2>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Subscriptions</h3>
-          <ul class="list-disc list-inside space-y-2 text-legion-muted mb-4">
+          <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted mb-4">
             <li>Subscriptions renew automatically until canceled</li>
             <li>You can cancel anytime; access continues until the end of the billing period</li>
             <li>No refunds for partial months or unused tokens</li>
             <li>We reserve the right to change prices with 30 days notice</li>
           </ul>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Token Packs</h3>
-          <ul class="list-disc list-inside space-y-2 text-legion-muted">
+          <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted">
             <li>Token packs are non-refundable once purchased</li>
             <li>Tokens never expire</li>
             <li>Tokens are non-transferable</li>
@@ -200,7 +201,7 @@
   </main>
 
   <footer class="py-12 px-6 border-t border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
-    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted dark:text-legion-muted text-light-muted">
+    <div class="max-w-6xl mx-auto text-center text-sm text-legion-muted dark:text-legion-muted text-light-muted dark:text-legion-muted text-light-muted">
       <div class="flex justify-center gap-6 mb-4">
         <a href="/terms.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Terms of Service</a>
         <a href="/privacy.html" class="hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright">Privacy Policy</a>
@@ -220,11 +221,11 @@
 
       function updateIcons() {
         if (html.classList.contains('dark')) {
-          sunIcon.classList.add('hidden');
-          moonIcon.classList.remove('hidden');
-        } else {
           sunIcon.classList.remove('hidden');
           moonIcon.classList.add('hidden');
+        } else {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
         }
       }
 
