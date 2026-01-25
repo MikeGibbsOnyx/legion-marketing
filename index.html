@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
+  <!-- Theme Script (must be first to avoid flash) -->
+  <script>
+    // Initialize theme before page renders
+    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+      document.documentElement.classList.remove('dark')
+    } else {
+      document.documentElement.classList.add('dark')
+    }
+  </script>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
   <script>
@@ -68,6 +77,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -79,6 +89,15 @@
               'text': '#e4e4e7',
               'muted': '#71717a',
               'bright': '#fafafa',
+            },
+            'light': {
+              'bg': '#ffffff',
+              'surface': '#f8f9fa',
+              'elevated': '#ffffff',
+              'border': '#e5e7eb',
+              'text': '#1f2937',
+              'muted': '#6b7280',
+              'bright': '#111827',
             },
             'accent': '#00d4aa',
             'model': {
@@ -120,26 +139,36 @@
     }
   </style>
 </head>
-<body class="bg-legion-bg text-legion-text antialiased min-h-screen">
+<body class="bg-legion-bg dark:bg-legion-bg bg-light-bg text-legion-text dark:text-legion-text text-light-text antialiased min-h-screen transition-colors duration-200">
 
   <!-- Firefly cursor effect -->
   <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
   <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 backdrop-blur-xl border-b border-legion-border">
+  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10">
       </a>
       <div class="hidden md:flex items-center gap-8">
-        <a href="#how-it-works" class="text-legion-muted hover:text-legion-text transition-colors">How It Works</a>
+        <a href="#how-it-works" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">How It Works</a>
         <a href="/enterprise.html" class="text-amber-500 hover:text-amber-400 transition-colors font-medium">Enterprise</a>
-        <a href="/pricing.html" class="text-legion-muted hover:text-legion-text transition-colors">Pricing</a>
-        <a href="https://www.onyxailabs.com" class="text-legion-muted hover:text-legion-text transition-colors">Onyx AI Labs</a>
+        <a href="/pricing.html" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">Pricing</a>
+        <a href="https://www.onyxailabs.com" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">Onyx AI Labs</a>
       </div>
-      <a href="https://app.onyxlegion.ai" class="px-6 py-2 rounded-full bg-accent text-legion-bg font-bold hover:bg-accent/90 transition-colors">
-        Get Started
-      </a>
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-legion-elevated dark:hover:bg-legion-elevated hover:bg-light-elevated transition-colors" aria-label="Toggle theme">
+          <svg id="theme-icon-sun" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+          </svg>
+          <svg id="theme-icon-moon" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+        </button>
+        <a href="https://app.onyxlegion.ai" class="px-6 py-2 rounded-full bg-accent text-legion-bg dark:text-legion-bg text-white font-bold hover:bg-accent/90 transition-colors">
+          Get Started
+        </a>
+      </div>
     </div>
   </nav>
 
@@ -148,10 +177,10 @@
     <div class="max-w-5xl mx-auto text-center">
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-legion-elevated border border-accent/30 mb-8">
         <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-        <span class="text-sm text-accent font-medium">Now Available — Web, iOS, macOS</span>
+        <span class="text-sm text-accent font-medium">Coming soon: iOS, macOS and Android</span>
       </div>
 
-      <h1 class="text-5xl md:text-7xl font-extrabold text-legion-bright leading-tight mb-6">
+      <h1 class="text-5xl md:text-7xl font-extrabold text-legion-bright dark:text-legion-bright text-light-bright leading-tight mb-6">
         Many Minds. <span class="gradient-text">One Answer.</span>
       </h1>
 
@@ -202,7 +231,7 @@
   <section class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-5xl font-bold text-legion-bright mb-6">
+        <h2 class="text-3xl md:text-5xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
           The AI Paradox
         </h2>
         <p class="text-xl text-legion-muted max-w-3xl mx-auto">
@@ -211,25 +240,25 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🎯</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Every Model Has Blind Spots</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Every Model Has Blind Spots</h3>
           <p class="text-sm text-legion-muted">
             Claude excels at nuance. GPT at breadth. Gemini at current events. Grok at unfiltered takes. DeepSeek at technical depth.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">⚖️</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">You're Playing Referee</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">You're Playing Referee</h3>
           <p class="text-sm text-legion-muted">
             Opening multiple tabs. Comparing contradictory answers. Wondering which AI to trust. Spending more time managing than thinking.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">❌</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">No Accountability</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">No Accountability</h3>
           <p class="text-sm text-legion-muted">
             One AI giving you one answer with no peer review, no fact-checking, no challenge. AIs sound authoritative even when they're wrong.
           </p>
@@ -243,10 +272,10 @@
   </section>
 
   <!-- Solution Section -->
-  <section class="py-24 px-6 bg-legion-surface">
+  <section class="py-24 px-6 bg-legion-surface dark:bg-legion-surface bg-light-surface transition-colors duration-200">
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-legion-bright mb-6">
+        <h2 class="text-3xl md:text-5xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
           One Query. Every Perspective. One Answer.
         </h2>
         <p class="text-xl text-legion-muted max-w-3xl mx-auto">
@@ -255,27 +284,27 @@
       </div>
 
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl">1️⃣</span>
           </div>
-          <h3 class="text-xl font-bold text-legion-bright mb-2">Ask Once</h3>
+          <h3 class="text-xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Ask Once</h3>
           <p class="text-legion-muted">Type your question once. Legion handles the rest—no copy-pasting, no tab management.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl">⚡</span>
           </div>
-          <h3 class="text-xl font-bold text-legion-bright mb-2">Parallel Processing</h3>
+          <h3 class="text-xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Parallel Processing</h3>
           <p class="text-legion-muted">Your query goes to Claude, GPT, Gemini, Grok, and DeepSeek—simultaneously.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl">👁️</span>
           </div>
-          <h3 class="text-xl font-bold text-legion-bright mb-2">See Every Angle</h3>
+          <h3 class="text-xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-2">See Every Angle</h3>
           <p class="text-legion-muted">View each model's individual response side-by-side. Complete transparency into their reasoning.</p>
         </div>
 
@@ -293,7 +322,7 @@
   <!-- How Legion Mode Works -->
   <section id="how-it-works" class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         How Legion Mode Works
       </h2>
       <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
@@ -302,44 +331,44 @@
 
       <div class="grid md:grid-cols-4 gap-6">
         <!-- Round 1 -->
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl font-bold text-accent">1</span>
           </div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Independent Answers</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Independent Answers</h3>
           <p class="text-legion-muted text-sm">
             All 5 AIs answer your question independently, without seeing each other. Pure, unbiased first responses.
           </p>
         </div>
 
         <!-- Round 2 -->
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl font-bold text-accent">2</span>
           </div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Cross-Examination</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Cross-Examination</h3>
           <p class="text-legion-muted text-sm">
             Each AI critiques the others. They identify mistakes, gaps, weak arguments, and unexamined assumptions.
           </p>
         </div>
 
         <!-- Round 3 -->
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl font-bold text-accent">3</span>
           </div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Refinement</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Refinement</h3>
           <p class="text-legion-muted text-sm">
             AIs defend valid points and incorporate criticism into improved answers. Self-correction in action.
           </p>
         </div>
 
         <!-- Round 4 -->
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center mb-4">
             <span class="text-2xl font-bold text-accent">4</span>
           </div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Synthesis</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Synthesis</h3>
           <p class="text-legion-muted text-sm">
             Final answer synthesizes consensus, key insights, and areas of disagreement into one coherent response.
           </p>
@@ -355,9 +384,9 @@
   </section>
 
   <!-- Features Section -->
-  <section class="py-24 px-6 bg-legion-surface">
+  <section class="py-24 px-6 bg-legion-surface dark:bg-legion-surface bg-light-surface transition-colors duration-200">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         Built for How You Actually Work
       </h2>
       <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
@@ -365,49 +394,49 @@
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🧠</div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Multi-Model Deliberation</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Multi-Model Deliberation</h3>
           <p class="text-sm text-legion-muted">
             Why trust one AI when you can consult many? Legion's deliberation engine weighs multiple perspectives to surface the most reliable answer.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🔍</div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Complete Transparency</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Complete Transparency</h3>
           <p class="text-sm text-legion-muted">
             See exactly how each model responded. Drill into individual answers. Understand where they agree—and where they don't.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🎛️</div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Model Selection</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Model Selection</h3>
           <p class="text-sm text-legion-muted">
             Choose which models to query. All of them. Just the top three. Or your custom combination. You're in control.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">💬</div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Conversation Memory</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Conversation Memory</h3>
           <p class="text-sm text-legion-muted">
             Legion remembers context across your session. Follow-up questions build on previous answers—no re-explaining required.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">📥</div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">Export & Share</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Export & Share</h3>
           <p class="text-sm text-legion-muted">
             Download responses as markdown, PDF, or share a link. Perfect for research, documentation, or collaboration.
           </p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-bg border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-bg dark:bg-legion-bg bg-light-elevated border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-4">🔐</div>
-          <h3 class="text-xl font-semibold text-legion-bright mb-2">BYOK for Power Users</h3>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">BYOK for Power Users</h3>
           <p class="text-sm text-legion-muted">
             Use your own API keys for unlimited queries. Complete control over costs and usage.
           </p>
@@ -419,7 +448,7 @@
   <!-- Use Cases Section -->
   <section class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         When to Use Legion Mode
       </h2>
       <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
@@ -427,43 +456,43 @@
       </p>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">⚖️</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Legal Analysis</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Legal Analysis</h3>
           <p class="text-sm text-legion-muted mb-4">Contract review, compliance checks, case research. Mistakes are expensive.</p>
           <p class="text-xs text-accent italic">"I used to spend hours cross-referencing AI responses. Legion gives me the synthesis in seconds—with citations to each model's reasoning." — Research Analyst</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">🏗️</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Engineering Design</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Engineering Design</h3>
           <p class="text-sm text-legion-muted mb-4">System architecture, security review, failure mode analysis.</p>
           <p class="text-xs text-accent italic">"When evaluating architectural approaches, I want multiple expert opinions. Legion is like having a panel of senior engineers on call." — Engineering Lead</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">💊</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Medical Research</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Medical Research</h3>
           <p class="text-sm text-legion-muted">Diagnostic reasoning, drug interactions, clinical decision support.</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">💰</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Financial Modeling</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Financial Modeling</h3>
           <p class="text-sm text-legion-muted mb-4">Investment analysis, risk assessment, scenario planning.</p>
           <p class="text-xs text-accent italic">"In M&A, missing a single risk factor can be catastrophic. Legion's multi-model approach catches things a single AI would miss." — Investment Professional</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">📊</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Strategic Planning</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Strategic Planning</h3>
           <p class="text-sm text-legion-muted mb-4">Market analysis, competitor research, product roadmaps.</p>
           <p class="text-xs text-accent italic">"For content strategy, I need creative ideas AND practical constraints. Legion gives me both perspectives in one response." — Marketing Director</p>
         </div>
 
-        <div class="p-6 rounded-2xl bg-legion-surface border border-legion-border">
+        <div class="p-6 rounded-2xl bg-legion-surface dark:bg-legion-surface bg-white border border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
           <div class="text-4xl mb-3">🔬</div>
-          <h3 class="text-lg font-semibold text-legion-bright mb-2">Academic Research</h3>
+          <h3 class="text-lg font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Academic Research</h3>
           <p class="text-sm text-legion-muted">Literature review, methodology critique, hypothesis testing.</p>
         </div>
       </div>
@@ -471,9 +500,9 @@
   </section>
 
   <!-- Comparison Table -->
-  <section class="py-24 px-6 bg-legion-surface">
+  <section class="py-24 px-6 bg-legion-surface dark:bg-legion-surface bg-light-surface transition-colors duration-200">
     <div class="max-w-4xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-16">
         Legion vs. Single-Model Chat
       </h2>
 
@@ -521,7 +550,7 @@
   <!-- Stats Section -->
   <section class="py-24 px-6">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-4">
         Why 5 AIs > 1 AI
       </h2>
       <p class="text-center text-legion-muted mb-16 max-w-2xl mx-auto">
@@ -557,7 +586,7 @@
             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 text-amber-500 text-sm font-medium mb-4">
               Enterprise
             </div>
-            <h3 class="text-2xl md:text-3xl font-bold text-legion-bright mb-4">
+            <h3 class="text-2xl md:text-3xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-4">
               Stop Building AI. Start Using It.
             </h3>
             <p class="text-legion-muted mb-4">
@@ -598,9 +627,9 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="py-24 px-6 bg-legion-surface">
+  <section class="py-24 px-6 bg-legion-surface dark:bg-legion-surface bg-light-surface transition-colors duration-200">
     <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-legion-bright mb-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
         Stop Guessing. Start Knowing.
       </h2>
       <p class="text-xl text-legion-muted">
@@ -610,7 +639,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-6 border-t border-legion-border">
+  <footer class="py-12 px-6 border-t border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
     <div class="max-w-6xl mx-auto">
       <div class="grid md:grid-cols-4 gap-8 mb-8">
         <div>
@@ -623,7 +652,7 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-legion-bright mb-3">Product</h4>
+          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Product</h4>
           <ul class="space-y-2 text-sm text-legion-muted">
             <li><a href="#how-it-works" class="hover:text-legion-text">How It Works</a></li>
             <li><a href="/pricing.html" class="hover:text-legion-text">Pricing</a></li>
@@ -633,7 +662,7 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-legion-bright mb-3">Company</h4>
+          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Company</h4>
           <ul class="space-y-2 text-sm text-legion-muted">
             <li><a href="https://www.onyxailabs.com" class="hover:text-legion-text">Onyx AI Labs</a></li>
             <li><a href="https://www.onyxailabs.com/research/" class="hover:text-legion-text">Research</a></li>
@@ -643,7 +672,7 @@
         </div>
 
         <div>
-          <h4 class="font-semibold text-legion-bright mb-3">Legal</h4>
+          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Legal</h4>
           <ul class="space-y-2 text-sm text-legion-muted">
             <li><a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a></li>
             <li><a href="/terms.html" class="hover:text-legion-text">Terms of Service</a></li>
@@ -747,6 +776,40 @@
       }
 
       animate();
+    })();
+  </script>
+
+  <!-- Theme Toggle Script -->
+  <script>
+    (function() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const sunIcon = document.getElementById('theme-icon-sun');
+      const moonIcon = document.getElementById('theme-icon-moon');
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains('dark')) {
+          sunIcon.classList.add('hidden');
+          moonIcon.classList.remove('hidden');
+        } else {
+          sunIcon.classList.remove('hidden');
+          moonIcon.classList.add('hidden');
+        }
+      }
+
+      // Initialize icons
+      updateIcons();
+
+      themeToggle.addEventListener('click', function() {
+        if (html.classList.contains('dark')) {
+          html.classList.remove('dark');
+          localStorage.theme = 'light';
+        } else {
+          html.classList.add('dark');
+          localStorage.theme = 'dark';
+        }
+        updateIcons();
+      });
     })();
   </script>
 
