@@ -1,445 +1,762 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
-  <!-- Theme Script (must be first to avoid flash) -->
-  <script>
-    // Initialize theme before page renders
-    if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-      document.documentElement.classList.remove('dark')
-    } else {
-      document.documentElement.classList.add('dark')
-    }
-  </script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGR51F91MH"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-TGR51F91MH');
-  </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing | Multi-AI Deliberation Plans | Onyx Legion</title>
-  <meta name="description" content="Simple, transparent pricing for Onyx Legion multi-AI deliberation. Consumer plans from $9.99/mo. Enterprise pricing available.">
-
-  <!-- SEO Keywords -->
-  <meta name="keywords" content="AI pricing, multi-AI platform cost, Claude GPT Gemini pricing, AI subscription, enterprise AI pricing, AI tokens">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Onyx Legion Pricing | Multi-AI Deliberation Plans">
-  <meta property="og:description" content="Simple, transparent pricing. Consumer plans from $9.99/mo. Enterprise available.">
-  <meta property="og:image" content="https://onyxlegion.ai/assets/LegionLogoDarkBG.png">
-  <meta property="og:url" content="https://onyxlegion.ai/pricing.html">
-  <meta property="og:type" content="website">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Onyx Legion Pricing | Multi-AI Deliberation">
-  <meta name="twitter:description" content="Simple pricing. Pay only for what you need. No hidden fees.">
-
-  <!-- Canonical -->
-  <link rel="canonical" href="https://onyxlegion.ai/pricing.html">
-
-  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            'legion': {
-              'bg': '#0a0a0f',
-              'surface': '#12121a',
-              'elevated': '#1a1a24',
-              'border': '#2a2a3a',
-              'text': '#e4e4e7',
-              'muted': '#71717a',
-              'bright': '#fafafa',
-            },
-            'light': {
-              'bg': '#ffffff',
-              'surface': '#f8f9fa',
-              'elevated': '#f3f4f6',
-              'border': '#d1d5db',
-              'text': '#374151',
-              'muted': '#4b5563',
-              'bright': '#111827',
-            },
-            'accent': '#00d4aa',
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Multi-AI Deliberation Plans | Onyx Legion</title>
+    <meta name="description" content="Premium multi-AI deliberation for decisions that matter. Try Legion for $3.99.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #00d4aa;
+            --accent-dim: rgba(0, 212, 170, 0.15);
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-dim: #666666;
+            --border: #2a2a2a;
         }
-      }
-    }
-  </script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-    body { font-family: 'Inter', system-ui, sans-serif; }
-  </style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        
+        .nav-placeholder {
+            height: 80px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 80px 24px 40px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: var(--accent-dim);
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 32px;
+        }
+        
+        .hero h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+        }
+        
+        .hero h1 span {
+            color: var(--accent);
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Main CTA */
+        .main-cta {
+            padding: 40px 24px 80px;
+        }
+        
+        .cta-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--accent-dim), transparent);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+        }
+        
+        .cta-card .price {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+        }
+        
+        .cta-card .price-note {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin: 8px 0 24px;
+        }
+        
+        .cta-card .what-you-get {
+            font-size: 15px;
+            color: var(--text-primary);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        
+        .cta-card .what-you-get strong {
+            color: var(--accent);
+        }
+        
+        .btn-primary {
+            display: inline-block;
+            background: var(--accent);
+            color: #000;
+            font-weight: 600;
+            font-size: 18px;
+            padding: 18px 48px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(0, 212, 170, 0.35);
+        }
+        
+        .cta-card .reassurance {
+            font-size: 14px;
+            color: var(--text-dim);
+            margin-top: 20px;
+        }
+
+        /* Why It Costs This */
+        .why-section {
+            padding: 60px 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .why-card {
+            max-width: 680px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+        }
+
+        .why-card h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .why-card .tagline {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .process-list {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .process-list li {
+            font-size: 15px;
+            line-height: 1.8;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .process-list li:last-child {
+            border-bottom: none;
+        }
+
+        .process-list li strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .why-card .conclusion {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-primary);
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .why-card .conclusion strong {
+            color: var(--accent);
+        }
+
+        /* Subscriptions */
+        .subscriptions {
+            padding: 80px 24px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .section-header h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+        
+        .section-header p {
+            color: var(--text-secondary);
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px;
+            position: relative;
+            transition: border-color 0.2s;
+        }
+        
+        .pricing-card:hover {
+            border-color: var(--text-dim);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--accent);
+        }
+        
+        .pricing-card .popular-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent);
+            color: #000;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 5px 14px;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .pricing-card h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+        
+        .pricing-card .price {
+            font-size: 36px;
+            font-weight: 700;
+        }
+        
+        .pricing-card .price span {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+        
+        .pricing-card .tokens {
+            color: var(--accent);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 6px 0 4px;
+        }
+        
+        .pricing-card .usage-breakdown {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-bottom: 20px;
+        }
+        
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+        
+        .pricing-card ul li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .pricing-card ul li::before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: 600;
+            position: absolute;
+            left: 0;
+        }
+        
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            background: transparent;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            padding: 12px 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--text-dim);
+        }
+        
+        .pricing-card.featured .btn-secondary {
+            background: var(--accent);
+            color: #000;
+            border-color: var(--accent);
+        }
+        
+        /* Token Packs */
+        .token-packs {
+            padding: 60px 24px;
+            background: var(--bg-card);
+        }
+        
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        
+        .pack-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .pack-card .name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .pack-card .price {
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .pack-card .tokens {
+            font-size: 13px;
+            color: var(--accent);
+            margin: 4px 0;
+        }
+        
+        .pack-card .usage {
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+        
+        /* Value Prop Reminder */
+        .value-reminder {
+            padding: 60px 24px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .value-reminder .inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .value-reminder h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+        
+        .value-reminder p {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+        
+        .value-reminder .highlight {
+            color: var(--accent);
+            font-weight: 500;
+        }
+        
+        /* Usage Guide */
+        .usage-guide {
+            padding: 60px 24px;
+            background: var(--bg-card);
+        }
+        
+        .usage-table {
+            max-width: 550px;
+            margin: 0 auto;
+        }
+        
+        .usage-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 20px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            margin-bottom: 8px;
+            border-radius: 10px;
+        }
+        
+        .usage-row:last-child {
+            background: linear-gradient(135deg, var(--accent-dim), var(--bg-dark));
+            border-color: var(--accent);
+        }
+        
+        .usage-row .mode {
+            font-size: 15px;
+        }
+        
+        .usage-row .mode small {
+            display: block;
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-top: 2px;
+        }
+        
+        .usage-row .cost {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent);
+        }
+        
+        .usage-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-dim);
+            margin-top: 20px;
+        }
+        
+        /* Enterprise */
+        .enterprise {
+            padding: 80px 24px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .enterprise-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .enterprise-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+        
+        .enterprise-content > p {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .enterprise-features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 20px;
+            margin-bottom: 32px;
+        }
+        
+        .enterprise-features span {
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            background: var(--accent-dim);
+            border-radius: 6px;
+        }
+        
+        .enterprise-cta {
+            display: inline-block;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 15px;
+            padding: 14px 32px;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        
+        .enterprise-cta:hover {
+            background: var(--accent-dim);
+        }
+
+        .footer-placeholder {
+            height: 300px;
+            border-top: 1px solid var(--border);
+        }
+        
+        @media (max-width: 768px) {
+            .hero { padding: 60px 24px 30px; }
+            .cta-card { padding: 36px 28px; }
+            .cta-card .price { font-size: 52px; }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .packs-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
 </head>
-<body class="bg-legion-bg dark:bg-legion-bg bg-light-bg text-legion-text dark:text-legion-text text-light-text antialiased transition-colors duration-200">
-
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 bg-legion-bg/80 dark:bg-legion-bg/80 bg-light-bg/80 backdrop-blur-xl border-b border-legion-border dark:border-legion-border border-light-border transition-colors duration-200">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-10 hidden dark:block">
-        <img src="/assets/LegionLogoLightBG.png" alt="Onyx Legion" class="h-10 block dark:hidden">
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/#how-it-works" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">How It Works</a>
-        <a href="/enterprise.html" class="text-amber-500 hover:text-amber-400 transition-colors font-medium">Enterprise</a>
-        <a href="/pricing.html" class="text-legion-text dark:text-legion-text text-light-text font-medium">Pricing</a>
-        <a href="https://www.onyxailabs.com" class="text-legion-muted dark:text-legion-muted text-light-muted hover:text-legion-text dark:hover:text-legion-text hover:text-light-bright transition-colors">Onyx AI Labs</a>
-      </div>
-      <div class="flex items-center gap-4">
-        <button id="theme-toggle" class="p-2 rounded-lg hover:bg-legion-elevated dark:hover:bg-legion-elevated hover:bg-light-elevated transition-colors" aria-label="Toggle theme">
-          <svg id="theme-icon-sun" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text hidden" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-          </svg>
-          <svg id="theme-icon-moon" class="w-5 h-5 text-legion-text dark:text-legion-text text-light-text" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-          </svg>
-        </button>
-        <a href="https://app.onyxlegion.ai" class="px-6 py-2 rounded-full bg-accent text-legion-bg dark:text-legion-bg text-white font-bold hover:bg-accent/90 transition-colors">
-          Get Started
-        </a>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Header -->
-  <section class="pt-32 pb-12 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-legion-elevated border border-accent/30 mb-6">
-        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
-        <span class="text-sm text-accent font-medium">Coming soon: iOS, macOS and Android</span>
-      </div>
-      <h1 class="text-4xl md:text-5xl font-extrabold text-legion-bright dark:text-legion-bright text-light-bright mb-4">
-        Simple, Transparent Pricing
-      </h1>
-      <p class="text-xl text-legion-muted dark:text-legion-muted text-light-muted max-w-2xl mx-auto">
-        Pay only for what you need. No contracts. No hidden fees.
-      </p>
-    </div>
-  </section>
-
-  <!-- Subscriptions -->
-  <section class="py-16 px-6">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-2">Monthly Subscriptions</h2>
-      <p class="text-center text-legion-muted dark:text-legion-muted text-light-muted mb-12">Tokens renew monthly. Cancel anytime.</p>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Legionnaire -->
-        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
-          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Legionnaire</h3>
-          <p class="text-legion-muted text-sm mb-4">For regular users</p>
-          <div class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$9.99<span class="text-lg text-legion-muted dark:text-legion-muted text-light-muted">/mo</span></div>
-          <p class="text-accent font-semibold mb-6">3,000 tokens</p>
-          <ul class="space-y-3 text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-8">
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> All 5 AI models
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Single, Parallel, Legion modes
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Conversation history
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Export & share
-            </li>
-          </ul>
-          <a href="https://app.onyxlegion.ai" class="block w-full py-3 rounded-xl border border-legion-border text-legion-text font-semibold text-center hover:bg-legion-elevated transition-colors">
-            Get Started
-          </a>
+<body>
+    <div class="nav-placeholder"></div>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="badge">🔥 Coming soon: iOS, macOS and Android</div>
+        <h1>Many Minds. <span>One Answer.</span></h1>
+        <p>Five AIs debate. The best reasoning survives. You get answers you can trust.</p>
+    </section>
+    
+    <!-- Main CTA -->
+    <section class="main-cta">
+        <div class="container">
+            <div class="cta-card">
+                <div class="price">$3.99</div>
+                <div class="price-note">One-time purchase. No subscription.</div>
+                <div class="what-you-get">
+                    <strong>2,500 tokens</strong><br>
+                    4 full Legion deliberations, or<br>
+                    12 parallel comparisons, or<br>
+                    60+ single-model queries
+                </div>
+                <a href="https://app.onyxlegion.ai/signup" class="btn-primary">Get Started</a>
+                <p class="reassurance">Tokens never expire. No commitment.</p>
+            </div>
         </div>
+    </section>
 
-        <!-- Centurion -->
-        <div class="p-8 rounded-2xl bg-accent/10 border border-accent/30 relative">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-accent text-legion-bg text-xs font-bold rounded-full">
-            ⚔️ MOST POPULAR
-          </div>
-          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Centurion</h3>
-          <p class="text-legion-muted text-sm mb-4">For power users</p>
-          <div class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$19.99<span class="text-lg text-legion-muted dark:text-legion-muted text-light-muted">/mo</span></div>
-          <p class="text-accent font-semibold mb-6">8,000 tokens</p>
-          <ul class="space-y-3 text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-8">
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Everything in Legionnaire
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> 2.6x more tokens
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Priority support
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Same price as ChatGPT Plus
-            </li>
-          </ul>
-          <a href="https://app.onyxlegion.ai" class="block w-full py-3 rounded-xl bg-accent text-legion-bg font-semibold text-center hover:bg-accent/90 transition-colors">
-            Get Started
-          </a>
+    <!-- Why It Costs This -->
+    <section class="why-section">
+        <div class="container">
+            <div class="why-card">
+                <h2>This is not a toy.</h2>
+                <p class="tagline">Every Legion deliberation is thousands of API tokens:</p>
+
+                <ul class="process-list">
+                    <li><strong>Round 1:</strong> All 5 AIs answer independently.</li>
+                    <li><strong>Round 2:</strong> Each AI sees the others' answers and critiques them.</li>
+                    <li><strong>Round 3:</strong> Each AI refines their position based on the criticism.</li>
+                    <li><strong>Round 4:</strong> Final arguments.</li>
+                    <li><strong>Synthesis:</strong> Claude synthesizes everything into one coherent answer.</li>
+                </ul>
+
+                <p class="conclusion">
+                    That's <strong>industrial-strength reasoning</strong> for decisions where being wrong is expensive — IT architectural decisions, legal analysis, medical research, engineering design, financial decisioning.<br><br>
+                    You don't need 100 of these a day. <strong>You need 5 that are right.</strong>
+                </p>
+            </div>
         </div>
+    </section>
 
-        <!-- Legatus -->
-        <div class="p-8 rounded-2xl bg-legion-surface border border-legion-border">
-          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Legatus</h3>
-          <p class="text-legion-muted text-sm mb-4">For teams & pros</p>
-          <div class="text-4xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$49.99<span class="text-lg text-legion-muted dark:text-legion-muted text-light-muted">/mo</span></div>
-          <p class="text-accent font-semibold mb-6">25,000 tokens</p>
-          <ul class="space-y-3 text-sm text-legion-muted dark:text-legion-muted text-light-muted mb-8">
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Everything in Centurion
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> 8x more tokens
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Best value per token
-            </li>
-            <li class="flex items-center gap-2">
-              <span class="text-accent">✓</span> Early access to features
-            </li>
-          </ul>
-          <a href="https://app.onyxlegion.ai" class="block w-full py-3 rounded-xl border border-legion-border text-legion-text font-semibold text-center hover:bg-legion-elevated transition-colors">
-            Get Started
-          </a>
+    <!-- Subscriptions -->
+    <section class="subscriptions">
+        <div class="container">
+            <div class="section-header">
+                <h2>Monthly Subscriptions</h2>
+                <p>Tokens renew monthly. Cancel anytime.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Legionnaire</h3>
+                    <div class="price">$9.99<span>/mo</span></div>
+                    <div class="tokens">3,000 tokens</div>
+                    <div class="usage-breakdown">~5 Legion · ~15 Parallel · ~75 Single</div>
+                    <ul>
+                        <li>All 5 AI models</li>
+                        <li>Single, Parallel, Legion modes</li>
+                        <li>Conversation history</li>
+                        <li>Export & share</li>
+                    </ul>
+                    <a href="https://app.onyxlegion.ai/signup" class="btn-secondary">Subscribe</a>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <span class="popular-badge">Most Popular</span>
+                    <h3>Centurion</h3>
+                    <div class="price">$19.99<span>/mo</span></div>
+                    <div class="tokens">8,000 tokens</div>
+                    <div class="usage-breakdown">~13 Legion · ~40 Parallel · ~200 Single</div>
+                    <ul>
+                        <li>Everything in Legionnaire</li>
+                        <li>2.6x more tokens</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="https://app.onyxlegion.ai/signup" class="btn-secondary">Subscribe</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Legatus</h3>
+                    <div class="price">$49.99<span>/mo</span></div>
+                    <div class="tokens">25,000 tokens</div>
+                    <div class="usage-breakdown">~41 Legion · ~125 Parallel · ~625 Single</div>
+                    <ul>
+                        <li>Everything in Centurion</li>
+                        <li>Best value per token</li>
+                        <li>Early access to features</li>
+                    </ul>
+                    <a href="https://app.onyxlegion.ai/signup" class="btn-secondary">Subscribe</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Token Packs -->
-  <section class="py-16 px-6 bg-legion-surface">
-    <div class="max-w-5xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-2">Token Packs</h2>
-      <p class="text-center text-legion-muted dark:text-legion-muted text-light-muted mb-12">One-time purchase. Tokens never expire.</p>
-
-      <div class="grid md:grid-cols-4 gap-4">
-        <!-- Quick -->
-        <div class="p-6 rounded-xl bg-legion-elevated border border-legion-border text-center">
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Quick Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$3.99</div>
-          <p class="text-accent text-sm mb-4">2,500 tokens</p>
-          <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">$1.60 / 1K tokens</p>
+    </section>
+    
+    <!-- Value Reminder -->
+    <section class="value-reminder">
+        <div class="inner">
+            <h3>This is not a toy.</h3>
+            <p>
+                Every Legion deliberation is <span class="highlight">21 API calls</span>:
+            </p>
+            <p style="margin-top: 16px; line-height: 1.9;">
+                <strong>Round 1:</strong> All 5 AIs answer independently.<br>
+                <strong>Round 2:</strong> Each AI sees the others' answers and critiques them.<br>
+                <strong>Round 3:</strong> Each AI refines their position based on the criticism.<br>
+                <strong>Round 4:</strong> Final arguments.<br>
+                <strong>Synthesis:</strong> Claude synthesizes everything into one coherent answer.
+            </p>
+            <p style="margin-top: 16px;">
+                That's industrial-strength reasoning for decisions where <span class="highlight">being wrong is expensive</span>—legal analysis, medical research, engineering design, financial modeling. You don't need 100 of these a day. You need 5 that are right.
+            </p>
         </div>
-
-        <!-- Power -->
-        <div class="p-6 rounded-xl bg-legion-elevated border border-legion-border text-center">
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Power Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$14.99</div>
-          <p class="text-accent text-sm mb-4">6,000 tokens</p>
-          <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">$2.50 / 1K tokens</p>
+    </section>
+    
+    <!-- Token Packs -->
+    <section class="token-packs">
+        <div class="container">
+            <div class="section-header">
+                <h2>Token Packs</h2>
+                <p>One-time purchase. Tokens never expire.</p>
+            </div>
+            
+            <div class="packs-grid">
+                <div class="pack-card">
+                    <div class="name">Quick Pack</div>
+                    <div class="price">$3.99</div>
+                    <div class="tokens">2,500 tokens</div>
+                    <div class="usage">~4 Legion deliberations</div>
+                </div>
+                <div class="pack-card">
+                    <div class="name">Power Pack</div>
+                    <div class="price">$14.99</div>
+                    <div class="tokens">6,000 tokens</div>
+                    <div class="usage">~10 Legion deliberations</div>
+                </div>
+                <div class="pack-card">
+                    <div class="name">Legion Pack</div>
+                    <div class="price">$34.99</div>
+                    <div class="tokens">15,000 tokens</div>
+                    <div class="usage">~25 Legion deliberations</div>
+                </div>
+                <div class="pack-card">
+                    <div class="name">Command Pack</div>
+                    <div class="price">$79.99</div>
+                    <div class="tokens">40,000 tokens</div>
+                    <div class="usage">~66 Legion deliberations</div>
+                </div>
+            </div>
         </div>
-
-        <!-- Legion -->
-        <div class="p-6 rounded-xl bg-accent/10 border border-accent/30 text-center relative">
-          <div class="absolute -top-2 left-1/2 -translate-x-1/2 px-2 py-0.5 bg-accent text-legion-bg text-xs font-bold rounded-full">
-            🔥 BEST VALUE
-          </div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Legion Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$34.99</div>
-          <p class="text-accent text-sm mb-4">15,000 tokens</p>
-          <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">$2.33 / 1K tokens</p>
+    </section>
+    
+    <!-- Usage Guide -->
+    <section class="usage-guide">
+        <div class="container">
+            <div class="section-header">
+                <h2>Token Usage</h2>
+            </div>
+            
+            <div class="usage-table">
+                <div class="usage-row">
+                    <div class="mode">
+                        Single Mode
+                        <small>Query one AI</small>
+                    </div>
+                    <div class="cost">~40 tokens</div>
+                </div>
+                <div class="usage-row">
+                    <div class="mode">
+                        Parallel Mode
+                        <small>All 5 AIs side-by-side</small>
+                    </div>
+                    <div class="cost">~200 tokens</div>
+                </div>
+                <div class="usage-row">
+                    <div class="mode">
+                        Legion Mode
+                        <small>4-round deliberation + synthesis</small>
+                    </div>
+                    <div class="cost">~600 tokens</div>
+                </div>
+            </div>
+            
+            <p class="usage-note">Estimates for typical queries. Actual usage varies with complexity and response length.</p>
         </div>
-
-        <!-- Command -->
-        <div class="p-6 rounded-xl bg-legion-elevated border border-legion-border text-center">
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">Command Pack</h3>
-          <div class="text-2xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-1">$79.99</div>
-          <p class="text-accent text-sm mb-4">40,000 tokens</p>
-          <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">$2.00 / 1K tokens</p>
+    </section>
+    
+    <!-- Enterprise -->
+    <section class="enterprise">
+        <div class="container">
+            <div class="enterprise-content">
+                <h2>Enterprise</h2>
+                <p>For organizations that need control, compliance, and custom deployment.</p>
+                
+                <div class="enterprise-features">
+                    <span>SSO / SAML</span>
+                    <span>Full Audit Trail</span>
+                    <span>BYOK</span>
+                    <span>Air-Gapped Deploy</span>
+                    <span>Private Models</span>
+                    <span>Role-Based Access</span>
+                </div>
+                
+                <a href="mailto:enterprise@onyxailabs.com" class="enterprise-cta">Contact Us</a>
+            </div>
         </div>
-      </div>
-
-      <div class="text-center mt-8">
-        <a href="https://app.onyxlegion.ai" class="inline-block px-8 py-3 bg-accent text-legion-bg font-bold rounded-xl hover:bg-accent/90 transition-colors">
-          Buy Token Pack →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Token Costs -->
-  <section class="py-16 px-6">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-12">Token Usage</h2>
-
-      <div class="space-y-4">
-        <div class="flex items-center justify-between p-4 rounded-xl bg-legion-surface border border-legion-border">
-          <div>
-            <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright">Single Mode</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Query one AI model</p>
-          </div>
-          <div class="text-right">
-            <p class="text-xl font-bold text-accent">~40 tokens</p>
-            <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">per query</p>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between p-4 rounded-xl bg-legion-surface border border-legion-border">
-          <div>
-            <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright">Parallel Mode</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Query all 5 AIs side-by-side</p>
-          </div>
-          <div class="text-right">
-            <p class="text-xl font-bold text-accent">~200 tokens</p>
-            <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">per query</p>
-          </div>
-        </div>
-
-        <div class="flex items-center justify-between p-4 rounded-xl bg-accent/10 border border-accent/30">
-          <div>
-            <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright">Legion Mode</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">4-round deliberation + synthesis</p>
-          </div>
-          <div class="text-right">
-            <p class="text-xl font-bold text-accent">~600 tokens</p>
-            <p class="text-xs text-legion-muted dark:text-legion-muted text-light-muted">per query</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 p-4 rounded-xl bg-legion-surface/50 border border-legion-border/50 text-center">
-        <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
-          Token usage varies based on question complexity and response length. Estimates shown for typical queries.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-16 px-6 bg-legion-surface">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-2xl font-bold text-center text-legion-bright dark:text-legion-bright text-light-bright mb-12">Questions?</h2>
-
-      <div class="space-y-6">
-        <div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Do tokens expire?</h3>
-          <p class="text-legion-muted">Token packs never expire. Subscription tokens reset monthly.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Can I cancel anytime?</h3>
-          <p class="text-legion-muted">Yes. Cancel your subscription anytime. You'll keep access until the end of your billing period.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">What payment methods do you accept?</h3>
-          <p class="text-legion-muted">All major credit cards via Stripe. Secure and encrypted.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Is there a refund policy?</h3>
-          <p class="text-legion-muted">Subscriptions can be canceled anytime. Token packs are non-refundable once purchased.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Can I use my own API keys?</h3>
-          <p class="text-legion-muted">Yes! BYOK (Bring Your Own Keys) is available in Settings. Use your own API keys for unlimited queries at your own cost.</p>
-        </div>
-        <div>
-          <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Need enterprise features?</h3>
-          <p class="text-legion-muted">Contact us at <a href="mailto:enterprise@onyxailabs.com" class="text-accent hover:underline">enterprise@onyxailabs.com</a> for custom plans, SSO, audit logging, air-gapped deployment, and on-premise options.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="py-24 px-6">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-legion-bright dark:text-legion-bright text-light-bright mb-6">
-        Ready to get started?
-      </h2>
-      <p class="text-lg text-legion-muted dark:text-legion-muted text-light-muted mb-8">Start with our smallest pack or choose a subscription.</p>
-      <a href="https://app.onyxlegion.ai" class="inline-block px-10 py-4 bg-accent text-legion-bg font-bold text-lg rounded-xl hover:bg-accent/90 transition-all hover:scale-105">
-        Get Started →
-      </a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="py-12 px-6 border-t border-legion-border">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <img src="/assets/LegionLogoDarkBG.png" alt="Onyx Legion" class="h-6">
-          </div>
-          <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">
-            Multi-AI deliberation platform by Onyx AI Labs.
-          </p>
-        </div>
-
-        <div>
-          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Product</h4>
-          <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted">
-            <li><a href="/#how-it-works" class="hover:text-legion-text">How It Works</a></li>
-            <li><a href="/pricing.html" class="hover:text-legion-text">Pricing</a></li>
-            <li><a href="/enterprise.html" class="hover:text-legion-text">Enterprise</a></li>
-            <li><a href="https://app.onyxlegion.ai" class="hover:text-legion-text">Get Started</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Company</h4>
-          <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted">
-            <li><a href="https://www.onyxailabs.com" class="hover:text-legion-text">Onyx AI Labs</a></li>
-            <li><a href="https://www.onyxailabs.com/research/" class="hover:text-legion-text">Research</a></li>
-            <li><a href="mailto:inquiries@onyxailabs.com" class="hover:text-legion-text">Contact</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-3">Legal</h4>
-          <ul class="space-y-2 text-sm text-legion-muted dark:text-legion-muted text-light-muted">
-            <li><a href="/privacy.html" class="hover:text-legion-text">Privacy Policy</a></li>
-            <li><a href="/terms.html" class="hover:text-legion-text">Terms of Service</a></li>
-            <li><a href="/security.html" class="hover:text-legion-text">Security</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="pt-8 border-t border-legion-border text-center text-sm text-legion-muted dark:text-legion-muted text-light-muted">
-        © 2026 Onyx AI Labs Inc. Toronto, Canada.
-      </div>
-    </div>
-  </footer>
-
-  <!-- Theme Toggle Script -->
-  <script>
-    (function() {
-      const themeToggle = document.getElementById('theme-toggle');
-      const sunIcon = document.getElementById('theme-icon-sun');
-      const moonIcon = document.getElementById('theme-icon-moon');
-      const html = document.documentElement;
-
-      function updateIcons() {
-        if (html.classList.contains('dark')) {
-          sunIcon.classList.remove('hidden');
-          moonIcon.classList.add('hidden');
-        } else {
-          sunIcon.classList.add('hidden');
-          moonIcon.classList.remove('hidden');
-        }
-      }
-
-      // Initialize icons
-      updateIcons();
-
-      themeToggle.addEventListener('click', function() {
-        if (html.classList.contains('dark')) {
-          html.classList.remove('dark');
-          localStorage.theme = 'light';
-        } else {
-          html.classList.add('dark');
-          localStorage.theme = 'dark';
-        }
-        updateIcons();
-      });
-    })();
-  </script>
-
+    </section>
+    
+    <div class="footer-placeholder"></div>
 </body>
 </html>
