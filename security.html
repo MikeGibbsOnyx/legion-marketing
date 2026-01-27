@@ -104,7 +104,8 @@
         <section>
           <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">Authentication & Access Control</h2>
           <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted">
-            <li><strong>Multi-Factor Authentication:</strong> Support for phone, email, Google, and Microsoft auth</li>
+            <li><strong>Two-Factor Authentication (2FA):</strong> Optional TOTP-based MFA with authenticator apps (Google Authenticator, Authy, 1Password). Includes 10 one-time backup codes for account recovery.</li>
+            <li><strong>Multiple Sign-In Methods:</strong> Phone, email/password, Google, and Microsoft authentication</li>
             <li><strong>JWT Tokens:</strong> Signed with HMAC-SHA256, 4-hour expiry</li>
             <li><strong>Token Versioning:</strong> Logout invalidates all existing tokens</li>
             <li><strong>Password Requirements:</strong> 12+ characters with complexity rules</li>
