@@ -118,18 +118,63 @@
 
         <section>
           <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">5. Payment and Billing</h2>
-          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Subscriptions</h3>
+
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">iOS App Purchase</h3>
+          <p class="text-legion-muted leading-relaxed mb-2">
+            Onyx Legion for iOS is a paid app ($3.99 USD) purchased through the Apple App Store:
+          </p>
           <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted mb-4">
-            <li>Subscriptions renew automatically until canceled</li>
+            <li>Initial purchase includes 2,500 tokens automatically credited on first sign-in</li>
+            <li>Tokens are credited once per Apple ID to prevent duplicate credits</li>
+            <li>App purchase is subject to Apple's Standard Licensed Application End User License Agreement (EULA)</li>
+            <li>Refunds are handled by Apple according to their refund policy</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Apple In-App Purchases (iOS Only)</h3>
+          <p class="text-legion-muted leading-relaxed mb-2">
+            Additional tokens and subscriptions available via Apple In-App Purchase:
+          </p>
+          <p class="text-legion-muted leading-relaxed mb-2"><strong>Token Packs (One-Time Purchase):</strong></p>
+          <ul class="list-disc list-inside space-y-1 text-legion-muted dark:text-legion-muted text-light-muted mb-2 ml-4">
+            <li>Quick Pack: $4.99 → 2,500 tokens</li>
+            <li>Power Pack: $14.99 → 6,000 tokens</li>
+            <li>Legion Pack: $34.99 → 15,000 tokens (Best Value)</li>
+            <li>Command Pack: $79.99 → 40,000 tokens</li>
+          </ul>
+          <p class="text-legion-muted leading-relaxed mb-2"><strong>Subscriptions (Auto-Renewable Monthly):</strong></p>
+          <ul class="list-disc list-inside space-y-1 text-legion-muted dark:text-legion-muted text-light-muted mb-4 ml-4">
+            <li>Legionnaire: $9.99/month → 3,000 tokens/month</li>
+            <li>Centurion: $19.99/month → 8,000 tokens/month (Most Popular)</li>
+            <li>Legatus: $49.99/month → 25,000 tokens/month</li>
+          </ul>
+          <p class="text-legion-muted leading-relaxed mb-2"><strong>iOS IAP Terms:</strong></p>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted mb-4">
+            <li>All purchases processed by Apple; we do not receive your payment information</li>
+            <li>Token packs are consumable, one-time purchases; tokens credited immediately</li>
+            <li>Subscriptions auto-renew monthly unless canceled 24+ hours before renewal</li>
+            <li>Subscription tokens are credited at the start of each billing period</li>
+            <li>Manage subscriptions via Settings → Apple ID → Subscriptions</li>
+            <li>Canceling a subscription stops future billing; access continues until period ends</li>
+            <li>Refunds follow <a href="https://www.apple.com/legal/internet-services/itunes/us/terms.html" class="text-accent hover:underline" target="_blank">Apple's refund policy</a></li>
+            <li>Tokens purchased via IAP are non-refundable digital goods</li>
+            <li>No refunds for partial months or unused tokens</li>
+          </ul>
+
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Web Subscriptions (Stripe)</h3>
+          <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted mb-4">
+            <li>Web subscriptions renew automatically until canceled</li>
             <li>You can cancel anytime; access continues until the end of the billing period</li>
             <li>No refunds for partial months or unused tokens</li>
             <li>We reserve the right to change prices with 30 days notice</li>
           </ul>
-          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Token Packs</h3>
+
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Token Usage</h3>
           <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted">
-            <li>Token packs are non-refundable once purchased</li>
-            <li>Tokens never expire</li>
-            <li>Tokens are non-transferable</li>
+            <li>Tokens never expire (valid indefinitely)</li>
+            <li>Tokens are non-transferable between accounts</li>
+            <li>Token balance is shared across web and iOS platforms (same account)</li>
+            <li>Token consumption varies by AI model and query complexity</li>
+            <li>Approximate token consumption: 500-2,000 tokens per query</li>
           </ul>
         </section>
 
@@ -168,8 +213,11 @@
 
         <section>
           <h2 class="text-2xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-4">10. Termination</h2>
-          <p class="text-legion-muted leading-relaxed">
+          <p class="text-legion-muted leading-relaxed mb-4">
             We may suspend or terminate your account if you violate these terms. You may delete your account at any time through the Settings page. Upon termination, all data associated with your account will be permanently deleted.
+          </p>
+          <p class="text-legion-muted leading-relaxed">
+            <strong>iOS App Deletion:</strong> Deleting the iOS app from your device does not delete your account or token balance. Your account and tokens remain accessible via the web platform or by reinstalling the app. To fully delete your account and forfeit all tokens, use the "Delete Account" option in Settings.
           </p>
         </section>
 

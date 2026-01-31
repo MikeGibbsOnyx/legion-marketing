@@ -98,8 +98,23 @@
             We collect information about your interactions with our platform, including queries submitted, AI models selected, token usage, and response preferences.
           </p>
           <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Payment Information</h3>
+          <p class="text-legion-muted leading-relaxed mb-4">
+            Payment processing is handled by Stripe for web purchases. We do not store complete credit card numbers. We retain transaction IDs, amounts, and subscription status.
+          </p>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">iOS App Purchase</h3>
+          <p class="text-legion-muted leading-relaxed mb-4">
+            Onyx Legion for iOS is a paid app ($3.99 USD) available through the Apple App Store. When you purchase the app, Apple processes your payment. We do not receive your payment information. Upon first sign-in, iOS users are automatically credited with 2,500 tokens. Your App Store purchase is linked to your Apple ID and subject to Apple's payment processing and privacy policies.
+          </p>
+          <h3 class="text-xl font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-2">Apple In-App Purchases (iOS Only)</h3>
           <p class="text-legion-muted leading-relaxed">
-            Payment processing is handled by Stripe. We do not store complete credit card numbers. We retain transaction IDs, amounts, and subscription status.
+            The iOS app offers optional In-App Purchases (IAP) for additional tokens and monthly subscriptions. All IAP transactions are processed by Apple. We receive notification of completed purchases but do not have access to your payment method or financial details. IAP products include:
+          </p>
+          <ul class="list-disc list-inside space-y-1 text-legion-muted dark:text-legion-muted text-light-muted mt-2 mb-4">
+            <li>Token Packs: One-time purchases ($4.99 - $79.99) for additional tokens</li>
+            <li>Subscriptions: Monthly auto-renewable subscriptions ($9.99 - $49.99/month) with recurring token allocations</li>
+          </ul>
+          <p class="text-legion-muted leading-relaxed">
+            Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period. Manage subscriptions through your Apple ID account settings. See <a href="https://support.apple.com/en-us/HT202039" class="text-accent hover:underline" target="_blank">Apple's subscription management guide</a>.
           </p>
         </section>
 
@@ -122,7 +137,8 @@
           </p>
           <ul class="list-disc list-inside space-y-2 text-legion-muted dark:text-legion-muted text-light-muted">
             <li><strong>AI Model Providers:</strong> Your queries are sent to third-party AI providers (Anthropic, OpenAI, Google, xAI, DeepSeek) to generate responses. Each provider has their own privacy policy.</li>
-            <li><strong>Service Providers:</strong> We use Firebase (Google), Stripe (payments), and SendGrid (email) to operate our platform.</li>
+            <li><strong>Service Providers:</strong> We use Firebase (Google), Stripe (web payments), Apple (iOS payments), and SendGrid (email) to operate our platform.</li>
+            <li><strong>Apple Services (iOS):</strong> iOS users' payment transactions are processed entirely by Apple. We only receive purchase confirmation data (product ID, transaction ID) to credit tokens. Apple's Privacy Policy governs how they handle your payment information.</li>
             <li><strong>Legal Requirements:</strong> We may disclose information if required by law or in response to valid legal requests.</li>
           </ul>
         </section>
