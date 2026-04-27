@@ -228,52 +228,113 @@
         <img src="/assets/legion-home.jpg" alt="Onyx Legion - Summon the Council" class="rounded-xl w-full">
       </div>
 
+      <!-- Video lightbox overlay -->
+      <div id="video-lightbox" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <div class="relative max-w-5xl w-full" onclick="event.stopPropagation()">
+          <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white text-3xl hover:text-gray-300">&times;</button>
+          <video id="lightbox-video" class="w-full rounded-xl" controls autoplay>
+            <source id="lightbox-source" src="" type="video/mp4">
+          </video>
+        </div>
+      </div>
+
       <!-- Round-by-round videos -->
       <div class="grid md:grid-cols-2 gap-4">
         <!-- Round 1 -->
-        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200">
-          <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
-            <source src="/assets/videos/legion-initial-response.mp4" type="video/mp4">
-          </video>
+        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200 group cursor-pointer" onclick="openLightbox('/assets/videos/legion-initial-response.mp4')">
+          <div class="relative">
+            <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
+              <source src="/assets/videos/legion-initial-response.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="bg-black/60 rounded-full p-3">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
           <div class="text-center">
             <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">🗣️ Round 1: Initial Responses</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Each AI answers independently</p>
+            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Each AI answers independently &middot; <span class="text-accent">click to expand</span></p>
           </div>
         </div>
 
         <!-- Round 2 -->
-        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200">
-          <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
-            <source src="/assets/videos/legion-cross-examination.mp4" type="video/mp4">
-          </video>
+        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200 group cursor-pointer" onclick="openLightbox('/assets/videos/legion-cross-examination.mp4')">
+          <div class="relative">
+            <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
+              <source src="/assets/videos/legion-cross-examination.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="bg-black/60 rounded-full p-3">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
           <div class="text-center">
             <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">⚔️ Round 2: Cross-Examination</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">AIs critique each other's reasoning</p>
+            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">AIs critique each other's reasoning &middot; <span class="text-accent">click to expand</span></p>
           </div>
         </div>
 
         <!-- Round 3 -->
-        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200">
-          <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
-            <source src="/assets/videos/legion-refinement.mp4" type="video/mp4">
-          </video>
+        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200 group cursor-pointer" onclick="openLightbox('/assets/videos/legion-refinement.mp4')">
+          <div class="relative">
+            <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
+              <source src="/assets/videos/legion-refinement.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="bg-black/60 rounded-full p-3">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
           <div class="text-center">
             <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">🔲 Round 3: Refinement</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">AIs update their positions</p>
+            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">AIs update their positions &middot; <span class="text-accent">click to expand</span></p>
           </div>
         </div>
 
         <!-- Round 4 -->
-        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200">
-          <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
-            <source src="/assets/videos/legion-synthesis.mp4" type="video/mp4">
-          </video>
+        <div class="rounded-xl border border-legion-border dark:border-legion-border border-light-border bg-legion-elevated dark:bg-legion-elevated bg-light-elevated p-3 transition-colors duration-200 group cursor-pointer" onclick="openLightbox('/assets/videos/legion-synthesis.mp4')">
+          <div class="relative">
+            <video class="rounded-lg w-full mb-3" autoplay muted loop playsinline>
+              <source src="/assets/videos/legion-synthesis.mp4" type="video/mp4">
+            </video>
+            <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="bg-black/60 rounded-full p-3">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </div>
+            </div>
+          </div>
           <div class="text-center">
             <h3 class="font-semibold text-legion-bright dark:text-legion-bright text-light-bright mb-1">✨ Round 4: Synthesis</h3>
-            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Final synthesized answer — earned</p>
+            <p class="text-sm text-legion-muted dark:text-legion-muted text-light-muted">Final synthesized answer — earned &middot; <span class="text-accent">click to expand</span></p>
           </div>
         </div>
       </div>
+
+      <script>
+        function openLightbox(src) {
+          var lb = document.getElementById('video-lightbox');
+          var vid = document.getElementById('lightbox-video');
+          var source = document.getElementById('lightbox-source');
+          source.src = src;
+          vid.load();
+          vid.play();
+          lb.classList.remove('hidden');
+          lb.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+          var lb = document.getElementById('video-lightbox');
+          var vid = document.getElementById('lightbox-video');
+          vid.pause();
+          lb.classList.add('hidden');
+          lb.classList.remove('flex');
+          document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) { if(e.key==='Escape') closeLightbox(); });
+      </script>
 
 
     </div>
